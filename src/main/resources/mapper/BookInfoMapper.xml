@@ -2,4 +2,15 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.book.system.mapper.BookInfoMapper">
 
+    <select id="getBookByClassOrSearchContent" resultType="com.book.system.entity.BookInfo">
+        select * from reader_info
+        <where>
+            <if test="classId != null">
+                class_id = #{classId}
+            </if>
+            <if test="content != null">
+                and introduction = #{content}
+            </if>
+        </where>
+    </select>
 </mapper>

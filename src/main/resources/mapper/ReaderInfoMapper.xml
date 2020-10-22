@@ -2,4 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.book.system.mapper.ReaderInfoMapper">
 
+
+    <update id="updateReaderImg">
+        update reader_info set img = #{img} where reader_id = #{readerId}
+    </update>
+    <select id="getReaderByUsername" resultType="com.book.system.entity.ReaderInfo">
+        select * from reader_info
+        where username = #{username}
+        and password = #{password}
+    </select>
 </mapper>

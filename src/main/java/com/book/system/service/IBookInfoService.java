@@ -2,6 +2,9 @@ package com.book.system.service;
 
 import com.book.system.entity.BookInfo;
 import com.baomidou.mybatisplus.extension.service.IService;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
  * <p>
@@ -12,5 +15,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2020-10-21
  */
 public interface IBookInfoService extends IService<BookInfo> {
-
+    List<BookInfo> getBookByClassOrSearchContent(String classId,String content);
 }

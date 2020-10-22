@@ -6,6 +6,9 @@ import com.book.system.service.IBookInfoService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+import java.util.List;
+
 /**
  * <p>
  *  服务实现类
@@ -17,4 +20,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class BookInfoServiceImpl extends ServiceImpl<BookInfoMapper, BookInfo> implements IBookInfoService {
 
+    @Resource
+    private BookInfoMapper bookInfoMapper;
+    
+    @Override
+    public List<BookInfo> getBookByClassOrSearchContent(String classId, String content) {
+        return bookInfoMapper.getBookByClassOrSearchContent(classId,content);
+    }
 }

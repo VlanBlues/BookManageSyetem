@@ -1,9 +1,10 @@
 package com.book.system.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
-import java.time.LocalDate;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
+
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -13,7 +14,7 @@ import lombok.EqualsAndHashCode;
  * </p>
  *
  * @author lan
- * @since 2020-10-21
+ * @since 2020-10-22
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -32,11 +33,13 @@ public class ReaderInfo implements Serializable {
 
     private String sex;
 
-    private LocalDate birth;
-
-    private String address;
+    private String birth;
 
     private String phone;
+
+    private String img;
+
+    private String registerDate;
 
 
 }

@@ -2,6 +2,9 @@ package com.book.system.mapper;
 
 import com.book.system.entity.BookInfo;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
  * <p>
@@ -12,5 +15,5 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @since 2020-10-21
  */
 public interface BookInfoMapper extends BaseMapper<BookInfo> {
-
+    List<BookInfo> getBookByClassOrSearchContent(@Param("classId") String classId,@Param("content") String content);
 }

@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.book.system.entity.LendList;
 import com.book.system.service.ILendListService;
+import com.book.system.util.MD5Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -27,6 +28,8 @@ public class LendListController {
     
     @Resource
     private ILendListService lendListService;
+    
+    
     
     @RequestMapping("all")
     public List<LendList> getAllLendList(){

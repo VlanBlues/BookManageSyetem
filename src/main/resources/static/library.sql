@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50721
 File Encoding         : 65001
 
-Date: 2020-10-21 15:45:21
+Date: 2020-10-22 17:12:34
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -151,25 +151,27 @@ INSERT INTO `lend_list` VALUES ('7', '1', '10001', '2017-09-02', '2017-09-02');
 DROP TABLE IF EXISTS `reader_info`;
 CREATE TABLE `reader_info` (
   `reader_id` int(20) NOT NULL AUTO_INCREMENT,
-  `name` varchar(10) NOT NULL,
-  `username` varchar(20) NOT NULL,
-  `password` varchar(20) NOT NULL,
-  `sex` varchar(2) NOT NULL,
-  `birth` date NOT NULL,
-  `address` varchar(50) NOT NULL,
-  `phone` varchar(15) NOT NULL,
+  `name` varchar(100) DEFAULT NULL,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `sex` varchar(2) DEFAULT NULL,
+  `birth` varchar(100) DEFAULT NULL,
+  `phone` varchar(15) DEFAULT NULL,
+  `img` varchar(100) DEFAULT NULL,
+  `register_date` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`reader_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10006 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10007 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of reader_info
 -- ----------------------------
-INSERT INTO `reader_info` VALUES ('10000', '张华', 'zhanghua', '123456', '男', '1995-06-10', '天津市', '12345678900');
-INSERT INTO `reader_info` VALUES ('10001', '王小伟', 'wangxiaowei', '456789', '男', '1996-02-01', '北京市', '12345678909');
-INSERT INTO `reader_info` VALUES ('10002', '王莞尔', 'wagwaner', '789456', '女', '1995-04-15', '浙江省杭州市', '12345678908');
-INSERT INTO `reader_info` VALUES ('10003', '张明华', 'zhangminghua', '456456', '男', '1996-08-29', '陕西省西安市', '12345678907');
-INSERT INTO `reader_info` VALUES ('10004', '李一琛', 'liyuchen', '789512', '男', '1996-01-01', '陕西省西安市', '15123659875');
-INSERT INTO `reader_info` VALUES ('10005', '李二飞', '', '523123', '男', '1996-05-03', '山东省青岛市', '15369874123');
+INSERT INTO `reader_info` VALUES ('10000', '张华', 'zhanghua', '123456', '男', '1995-06-10', '12345678900', '', '');
+INSERT INTO `reader_info` VALUES ('10001', '王小伟', 'wangxiaowei', '456789', '男', '1996-02-01', '12345678909', '', '');
+INSERT INTO `reader_info` VALUES ('10002', '王莞尔', 'wagwaner', '789456', '女', '1995-04-15', '12345678908', '', '');
+INSERT INTO `reader_info` VALUES ('10003', '张明华', 'zhangminghua', '456456', '男', '1996-08-29', '12345678907', '', '');
+INSERT INTO `reader_info` VALUES ('10004', '李一琛', 'liyuchen', '789512', '男', '1996-01-01', '15123659875', '', '');
+INSERT INTO `reader_info` VALUES ('10005', 'test2222', '123456', '123456', '女', '1996-05-28', '13735906695', '/img', '1998-05-28');
+INSERT INTO `reader_info` VALUES ('10006', 'lanss', '123456', '123456', '女', '1996-05-28', '13735906695', '/img', '1998-05-28');
 
 -- ----------------------------
 -- Table structure for reader_likes
