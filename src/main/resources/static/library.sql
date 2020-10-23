@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50721
 File Encoding         : 65001
 
-Date: 2020-10-22 17:12:34
+Date: 2020-10-23 16:52:34
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -41,11 +41,15 @@ CREATE TABLE `book_comment` (
   `content` text NOT NULL,
   `comment_date` varchar(100) NOT NULL,
   PRIMARY KEY (`comment_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of book_comment
 -- ----------------------------
+INSERT INTO `book_comment` VALUES ('1', '10000', '11', 'qwe', '2020-10-22');
+INSERT INTO `book_comment` VALUES ('2', '10001', '11', 'qaz', '2020-10-23');
+INSERT INTO `book_comment` VALUES ('3', '10002', '12', '搜索', '2020-10-21');
+INSERT INTO `book_comment` VALUES ('4', '10002', '1', 'qaz', '2020-10-23');
 
 -- ----------------------------
 -- Table structure for book_info
@@ -90,10 +94,10 @@ INSERT INTO `book_info` VALUES ('14', '秘密花园', '乔汉娜·贝斯福 ', '
 -- ----------------------------
 DROP TABLE IF EXISTS `class_info`;
 CREATE TABLE `class_info` (
-  `class_id` int(11) NOT NULL,
+  `class_id` int(11) NOT NULL AUTO_INCREMENT,
   `class_name` varchar(15) NOT NULL,
   PRIMARY KEY (`class_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of class_info
