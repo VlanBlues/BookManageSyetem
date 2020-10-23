@@ -6,6 +6,10 @@ import com.book.system.service.IBookCommentService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+import java.util.List;
+import java.util.Map;
+
 /**
  * <p>
  *  服务实现类
@@ -17,4 +21,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class BookCommentServiceImpl extends ServiceImpl<BookCommentMapper, BookComment> implements IBookCommentService {
 
+    @Resource
+    private BookCommentMapper bookCommentMapper;
+    @Override
+    public List<BookComment> getCommentAndReaderInfoById(String bookId) {
+        return bookCommentMapper.getCommentAndReaderInfoById(bookId);
+    }
 }

@@ -1,6 +1,7 @@
 package com.book.system.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
 import lombok.Data;
@@ -30,6 +31,9 @@ public class BookComment implements Serializable {
     private String content;
 
     private String commentDate;
+    
+    @TableField(exist = false)
+    private ReaderInfo readerInfo;
 
 
 }

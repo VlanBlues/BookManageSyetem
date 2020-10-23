@@ -1,5 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.book.system.mapper.BookCommentMapper">
+    
+    <resultMap id="commentResult" type="com.book.system.entity.BookComment">
+        <id property="commentId" column="comment_id"></id>
+        <result property="readerId" column="reader_id"></result>
+        <result property="bookId" column="book_id"></result>
+        <result property="content" column="content"></result>
+        <result property="commentDate" column="comment_date"></result>
+        <association property="readerInfo" javaType="com.book.system.entity.ReaderInfo" resultMap="readerResult"></association>
+    </resultMap>
 
+    <resultMap id="readerResult" type="com.book.system.entity.ReaderInfo">
+        <id property="readerId" column="reader_id"></id>
+        <result property="name" column="name"></result>
+        <result property="username" column="username"></result>
+        <result property="password" column="password"></result>
+        <result property="sex" column="sex"></result>
+        <result property="birth" column="birth"></result> 
+        <result property="phone" column="phone"></result>
+        <result property="img" column="img"></result>
+        <result property="registerDate" column="registerDate"></result>
+    </resultMap>
+    
+    <select id="getCommentAndReaderInfoById" resultMap="commentResult">
+        select 
+            a.*,
+            b.*
+        from book_comment a
+            join reader_info b
+                on a.reader_id = b.reader_id
+        WHERE a.book_id = #{bookId}
+    </select>
 </mapper>
