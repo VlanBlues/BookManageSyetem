@@ -1,6 +1,9 @@
 package com.book.system.controller;
 
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.book.system.entity.LendList;
 import com.book.system.entity.ReaderInfo;
 import com.book.system.service.IReaderInfoService;
 import com.book.system.util.Result;
@@ -13,6 +16,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import java.io.Reader;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -35,7 +41,7 @@ public class ReaderInfoController {
         if("".equals(readerByUsername.getUsername()) || null == readerByUsername.getUsername()){
             return Result.fail("用户名密码错误！");
         }
-        return Result.success("登录成功！！");
+        return Result.success(readerByUsername);
     }
 
     @RequestMapping("/updateOrSave")
@@ -52,5 +58,17 @@ public class ReaderInfoController {
     public Result updateImg(@RequestParam("file") MultipartFile file, int readerId){
         
         return readerInfoService.updateImg(file,readerId);
+    }
+
+    @RequestMapping("/getList")
+    public Result getReaderList(Integer current,Integer size){
+        IPage<ReaderInfo> readerInfoIPage = new Page<>(current,size);
+        IPage<ReaderInfo> page = readerInfoService.page(readerInfoIPage);
+        List<ReaderInfo> readerInfoList = page.getRecords();
+        long total = page.getTotal();
+        Map<String,Object> map = new HashMap<>();
+        map.put("readerInfoList",readerInfoList);
+        map.put("total",total);
+        return Result.success(map);
     }
 }
