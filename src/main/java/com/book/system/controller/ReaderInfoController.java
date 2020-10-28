@@ -1,6 +1,7 @@
 package com.book.system.controller;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.book.system.entity.LendList;
@@ -16,6 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import java.io.Reader;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -61,14 +63,40 @@ public class ReaderInfoController {
     }
 
     @RequestMapping("/getList")
-    public Result getReaderList(Integer current,Integer size){
-        IPage<ReaderInfo> readerInfoIPage = new Page<>(current,size);
-        IPage<ReaderInfo> page = readerInfoService.page(readerInfoIPage);
+    public Result getReaderList(Integer pageIndex,Integer pageSize,String name){
+        IPage<ReaderInfo> readerInfoIPage = new Page<>(pageIndex,pageSize);
+        IPage<ReaderInfo> page;
+        if (name == null || "".equals(name)) {
+            page = readerInfoService.page(readerInfoIPage);
+        }else {
+            QueryWrapper wrapper = new QueryWrapper();
+            wrapper.like("name",name);
+            page = readerInfoService.page(readerInfoIPage,wrapper);
+        }
         List<ReaderInfo> readerInfoList = page.getRecords();
         long total = page.getTotal();
         Map<String,Object> map = new HashMap<>();
         map.put("readerInfoList",readerInfoList);
         map.put("total",total);
         return Result.success(map);
+    }
+    @RequestMapping("/del")
+    public Result delByReaderId(String readerId){
+        boolean b = readerInfoService.removeById(readerId);
+        if(b){
+            return Result.success();
+        }
+        return Result.fail();
+    }
+    @RequestMapping("/delList")
+    public Result delListByReaderId(String readerIdList){
+        System.out.println(readerIdList);
+        List<String> list = Arrays.asList(readerIdList.split(","));
+        System.out.println(list);
+        boolean b = readerInfoService.removeByIds(list);
+        if(b){
+            return Result.success();
+        }
+        return Result.fail();
     }
 }
