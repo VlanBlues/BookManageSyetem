@@ -53,5 +53,10 @@ public class LendListController {
         map.put("total",total);
         return Result.success(map);
     }
-
+    
+    @RequestMapping("/get")
+    public Result getLendList(Integer readerId){
+        Result<Map<String, Object>> lendInfo = lendListService.getLendInfo(readerId);
+        return lendInfo;
+    }
 }

@@ -26,7 +26,7 @@ public class BookInfo implements Serializable {
     @TableId(value = "book_id", type = IdType.AUTO)
     private Integer bookId;
 
-    private String name;
+    private String bookName;
 
     private String author;
 
@@ -47,7 +47,7 @@ public class BookInfo implements Serializable {
 
     private Integer number;
 
-    private String img;
+    private String bookImg;
 
 
 }

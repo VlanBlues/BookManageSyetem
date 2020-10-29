@@ -2,4 +2,51 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.book.system.mapper.LendListMapper">
 
+    <resultMap id="lendReslt" type="com.book.system.entity.LendList">
+        <id property="lendId" column="lend_id"></id>
+        <result property="bookId" column="book_id"></result>
+        <result property="readerId" column="reader_id"></result>
+        <result property="lendDate" column="lend_date"></result>
+        <result property="backDate" column="back_date"></result>
+        <association property="readerInfo" javaType="com.book.system.entity.ReaderInfo" resultMap="readerResult"></association>
+        <association property="bookInfo" javaType="com.book.system.entity.BookInfo" resultMap="bookInfoResult"></association>
+    </resultMap>
+    <resultMap id="readerResult" type="com.book.system.entity.ReaderInfo">
+        <id property="readerId" column="reader_id"></id>
+        <result property="name" column="name"></result>
+        <result property="username" column="username"></result>
+        <result property="sex" column="sex"></result>
+        <result property="birth" column="birth"></result>
+        <result property="phone" column="phone"></result>
+        <result property="img" column="img"></result>
+        <result property="registerDate" column="registerDate"></result>
+    </resultMap>
+    <resultMap id="bookInfoResult" type="com.book.system.entity.BookInfo">
+        <id property="bookId" column="book_id"></id>
+        <result property="bookName" column="book_name"></result>
+        <result property="author" column="author"></result>
+        <result property="publish" column="publish"></result>
+        <result property="isbn" column="ISBN"></result>
+        <result property="introduction" column="introduction"></result>
+        <result property="language" column="language"></result>
+        <result property="price" column="price"></result>
+        <result property="pubDate" column="pub_date"></result>
+        <result property="classId" column="class_id"></result>
+        <result property="number" column="number"></result>
+        <result property="bookImg" column="book_img"></result>
+    </resultMap>
+
+    <select id="getLendInfo" resultMap="lendReslt">
+        select *
+        from lend_list lend
+            join book_info book
+                on lend.book_id = book.book_id
+            join reader_info reader
+                on lend.reader_id = reader.reader_id
+        <where>
+            <if test="readerId != null">
+                reader_id = #{readerId}
+            </if>
+        </where>
+    </select>
 </mapper>

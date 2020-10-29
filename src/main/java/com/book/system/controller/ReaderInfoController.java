@@ -49,6 +49,12 @@ public class ReaderInfoController {
     @RequestMapping("/updateOrSave")
     public Result updateOrSave(@RequestBody ReaderInfo readerInfo){
         System.out.println(readerInfo.toString());
+        QueryWrapper wrapper = new QueryWrapper();
+        wrapper.eq("username",readerInfo.getUsername());
+        ReaderInfo readerInfoByUsername = readerInfoService.getOne(wrapper);
+        if(readerInfoByUsername.getUsername() != null){
+            return Result.fail("用户名已存在！");
+        }
         boolean i = readerInfoService.saveOrUpdate(readerInfo);
         if(i){
             return Result.success(i);

@@ -2,6 +2,9 @@ package com.book.system.service;
 
 import com.book.system.entity.LendList;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.book.system.util.Result;
+
+import java.util.Map;
 
 /**
  * <p>
@@ -12,5 +15,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2020-10-21
  */
 public interface ILendListService extends IService<LendList> {
-
+    Result<Map<String, Object>> getLendInfo(Integer readerId);
 }

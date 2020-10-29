@@ -2,6 +2,8 @@ package com.book.system.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import java.time.LocalDate;
+
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
 import lombok.Data;
@@ -32,5 +34,10 @@ public class LendList implements Serializable {
 
     private LocalDate backDate;
 
+    @TableField(exist = false)
+    private BookInfo bookInfo;
+
+    @TableField(exist = false)
+    private ReaderInfo readerInfo;
 
 }
