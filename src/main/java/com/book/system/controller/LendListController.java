@@ -43,20 +43,8 @@ public class LendListController {
     }
     
     @RequestMapping("/getList")
-    public Result getAllLendList(Integer current,Integer size){
-        IPage<LendList> lendListIPage = new Page<>(current,size);
-        IPage<LendList> page = lendListService.page(lendListIPage);
-        List<LendList> lendLists = page.getRecords();
-        long total = page.getTotal();
-        Map<String,Object> map = new HashMap<>();
-        map.put("lendLists",lendLists);
-        map.put("total",total);
-        return Result.success(map);
-    }
-    
-    @RequestMapping("/get")
-    public Result getLendList(Integer readerId){
-        Result<Map<String, Object>> lendInfo = lendListService.getLendInfo(readerId);
+    public Result getLendList(Integer readerId,Integer current,Integer size){
+        Result lendInfo = lendListService.getLendInfo(readerId,current,size);
         return lendInfo;
     }
 }

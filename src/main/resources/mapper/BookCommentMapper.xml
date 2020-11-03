@@ -15,7 +15,6 @@
         <id property="readerId" column="reader_id"></id>
         <result property="name" column="name"></result>
         <result property="username" column="username"></result>
-        <result property="password" column="password"></result>
         <result property="sex" column="sex"></result>
         <result property="birth" column="birth"></result> 
         <result property="phone" column="phone"></result>

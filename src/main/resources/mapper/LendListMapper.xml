@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.book.system.mapper.LendListMapper">
 
-    <resultMap id="lendReslt" type="com.book.system.entity.LendList">
+    <resultMap id="lendResult" type="com.book.system.entity.LendList">
         <id property="lendId" column="lend_id"></id>
         <result property="bookId" column="book_id"></result>
         <result property="readerId" column="reader_id"></result>
@@ -36,7 +36,7 @@
         <result property="bookImg" column="book_img"></result>
     </resultMap>
 
-    <select id="getLendInfo" resultMap="lendReslt">
+    <select id="getLendInfo" resultMap="lendResult">
         select *
         from lend_list lend
             join book_info book
@@ -45,7 +45,7 @@
                 on lend.reader_id = reader.reader_id
         <where>
             <if test="readerId != null">
-                reader_id = #{readerId}
+                lend.reader_id = #{readerId}
             </if>
         </where>
     </select>

@@ -28,14 +28,10 @@ public class LendListServiceImpl extends ServiceImpl<LendListMapper, LendList> i
     @Resource
     private LendListMapper lendListMapper;
     @Override
-    public Result<Map<String, Object>> getLendInfo(Integer readerId) {
-        Page<LendList> lendListPage = new Page<>(1,2);
-        IPage<LendList> lendInfo = lendListMapper.getLendInfo(readerId, lendListPage);
-        List<LendList> records = lendInfo.getRecords();
-        long total = lendInfo.getTotal();
-        Map<String,Object> map = new HashMap<>();
-        map.put("lendList",records);
-        map.put("total",total);
-        return Result.success(map);
+    public Result getLendInfo(Integer readerId,Integer current,Integer size) {
+        Page<LendList> lendListPage = new Page<>(current,size);
+        List<LendList> lendInfo = lendListMapper.getLendInfo(readerId, lendListPage);
+        Page<LendList> lendListPage1 = lendListPage.setRecords(lendInfo);
+        return Result.success(lendListPage1);
     }
 }

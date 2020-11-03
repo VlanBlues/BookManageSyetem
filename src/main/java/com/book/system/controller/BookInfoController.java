@@ -1,6 +1,9 @@
 package com.book.system.controller;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.book.system.entity.BookInfo;
 import com.book.system.service.IBookInfoService;
 import com.book.system.util.Result;
@@ -49,5 +52,9 @@ public class BookInfoController {
         }
         return Result.fail("删除失败！");
     }
-    
+    @RequestMapping("/getList")
+    public Result getList(String bookName,Integer pageIndex,Integer pageSize){
+        Result bookInfoServiceList = bookInfoService.getList(bookName, pageIndex, pageSize);
+        return bookInfoServiceList;
+    }
 }

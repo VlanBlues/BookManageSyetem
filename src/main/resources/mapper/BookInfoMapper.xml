@@ -4,17 +4,22 @@
 
     <resultMap id="bookInfoResult" type="com.book.system.entity.BookInfo">
         <id property="bookId" column="book_id"></id>
-        <result property="name" column="name"></result>
+        <result property="bookName" column="book_name"></result>
         <result property="author" column="author"></result>
         <result property="publish" column="publish"></result>
         <result property="isbn" column="ISBN"></result>
         <result property="introduction" column="introduction"></result>
         <result property="language" column="language"></result>
         <result property="price" column="price"></result>
-        <result property="pubDate" column="pubDate"></result>
-        <result property="classId" column="classId"></result>
+        <result property="pubDate" column="pub_date"></result>
+        <result property="classId" column="class_id"></result>
         <result property="number" column="number"></result>
-        <result property="img" column="img"></result>
+        <result property="bookImg" column="book_img"></result>
+        <association property="classInfo" javaType="com.book.system.entity.ClassInfo" resultMap="classResult"></association>
+    </resultMap>
+    <resultMap id="classResult" type="com.book.system.entity.ClassInfo">
+        <id property="classId" column="class_id"></id>
+        <result property="className" column="class_name"></result>
     </resultMap>
     <select id="getBookByClassOrSearchContent" resultType="com.book.system.entity.BookInfo">
         select * from reader_info
@@ -24,6 +29,16 @@
             </if>
             <if test="content != null">
                 and introduction = #{content}
+            </if>
+        </where>
+    </select>
+    <select id="getList" resultMap="bookInfoResult">
+        select  *
+        from book_info a join class_info b
+        on a.class_id = b.class_id
+        <where>
+            <if test="null != bookName">
+                a.book_name like concat('%',#{bookName},'%')
             </if>
         </where>
     </select>

@@ -17,4 +17,6 @@ import java.util.Map;
  */
 public interface BookCommentMapper extends BaseMapper<BookComment> {
     List<BookComment> getCommentAndReaderInfoById(@Param("bookId") String bookId);
+    
+    
 }

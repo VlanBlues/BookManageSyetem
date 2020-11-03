@@ -49,5 +49,6 @@ public class BookInfo implements Serializable {
 
     private String bookImg;
 
+    private ClassInfo classInfo;
 
 }
