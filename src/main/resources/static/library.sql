@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50721
 File Encoding         : 65001
 
-Date: 2020-11-03 17:03:56
+Date: 2020-11-04 16:34:49
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -57,19 +57,19 @@ INSERT INTO `book_comment` VALUES ('4', '10002', '1', 'qaz', '2020-10-23');
 DROP TABLE IF EXISTS `book_info`;
 CREATE TABLE `book_info` (
   `book_id` int(20) NOT NULL AUTO_INCREMENT,
-  `book_name` varchar(20) NOT NULL,
-  `author` varchar(15) NOT NULL,
-  `publish` varchar(20) NOT NULL,
-  `ISBN` varchar(15) NOT NULL,
+  `book_name` varchar(20) DEFAULT NULL,
+  `author` varchar(15) DEFAULT NULL,
+  `publish` varchar(20) DEFAULT NULL,
+  `ISBN` varchar(15) DEFAULT NULL,
   `introduction` text,
-  `language` varchar(4) NOT NULL,
-  `price` decimal(10,2) NOT NULL,
-  `pub_date` date NOT NULL,
+  `language` varchar(4) DEFAULT NULL,
+  `price` double(10,2) DEFAULT NULL,
+  `pub_date` varchar(100) DEFAULT NULL,
   `class_id` int(11) DEFAULT NULL,
   `number` int(11) DEFAULT NULL,
   `book_img` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`book_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of book_info

@@ -39,9 +39,9 @@ public class BookInfo implements Serializable {
 
     private String language;
 
-    private BigDecimal price;
+    private Double price;
 
-    private LocalDate pubDate;
+    private String pubDate;
 
     private Integer classId;
 
@@ -49,6 +49,7 @@ public class BookInfo implements Serializable {
 
     private String bookImg;
 
+    @TableField(exist = false)
     private ClassInfo classInfo;
 
 }

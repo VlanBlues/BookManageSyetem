@@ -7,11 +7,15 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.book.system.entity.BookInfo;
 import com.book.system.service.IBookInfoService;
 import com.book.system.util.Result;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -36,7 +40,7 @@ public class BookInfoController {
     }
     
     @RequestMapping("/saveOrUpdate")
-    public Result addBook(BookInfo bookInfo){
+    public Result addBook(@RequestBody BookInfo bookInfo){
         boolean b = bookInfoService.saveOrUpdate(bookInfo);
         if(b){
             return Result.success(b);
@@ -52,9 +56,27 @@ public class BookInfoController {
         }
         return Result.fail("删除失败！");
     }
+
+    @RequestMapping("/delList")
+    public Result delListByReaderId(String bookIdList){
+        List<String> list = Arrays.asList(bookIdList.split(","));
+        System.out.println(list);
+        boolean b = bookInfoService.removeByIds(list);
+        if(b){
+            return Result.success();
+        }
+        return Result.fail();
+    }
+    
     @RequestMapping("/getList")
     public Result getList(String bookName,Integer pageIndex,Integer pageSize){
         Result bookInfoServiceList = bookInfoService.getList(bookName, pageIndex, pageSize);
         return bookInfoServiceList;
+    }
+
+    @RequestMapping("/update/bookImg")
+    public Result updateImg(@RequestParam("file") MultipartFile file, int bookId){
+
+        return bookInfoService.updateImg(file,bookId);
     }
 }

@@ -18,9 +18,12 @@
         <association property="classInfo" javaType="com.book.system.entity.ClassInfo" resultMap="classResult"></association>
     </resultMap>
     <resultMap id="classResult" type="com.book.system.entity.ClassInfo">
-        <id property="classId" column="class_id"></id>
-        <result property="className" column="class_name"></result>
+        <id property="value" column="class_id"></id>
+        <result property="label" column="class_name"></result>
     </resultMap>
+    <update id="updateBookImg">
+        update book_info set book_name = #{bookImg} where book_id = #{bookId}
+    </update>
     <select id="getBookByClassOrSearchContent" resultType="com.book.system.entity.BookInfo">
         select * from reader_info
         <where>
