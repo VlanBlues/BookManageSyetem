@@ -57,7 +57,7 @@ public class BookInfoServiceImpl extends ServiceImpl<BookInfoMapper, BookInfo> i
         try (InputStream inputStream = file.getInputStream()) {
             Files.copy(inputStream, Paths.get(local + filename), // 这里指定了下载的位置
                     StandardCopyOption.REPLACE_EXISTING);
-            filename ="http://localhost:8080/b/img/"+ filename;
+            filename ="http://localhost:8081/b/img/"+ filename;
             int i = bookInfoMapper.updateBookImg(filename, bookId);
             if(i == 1){
                 return Result.success("上传成功");

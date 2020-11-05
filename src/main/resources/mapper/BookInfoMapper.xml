@@ -22,7 +22,7 @@
         <result property="label" column="class_name"></result>
     </resultMap>
     <update id="updateBookImg">
-        update book_info set book_name = #{bookImg} where book_id = #{bookId}
+        update book_info set book_img = #{bookImg} where book_id = #{bookId}
     </update>
     <select id="getBookByClassOrSearchContent" resultType="com.book.system.entity.BookInfo">
         select * from reader_info
