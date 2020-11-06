@@ -18,4 +18,6 @@ public interface IReaderInfoService extends IService<ReaderInfo> {
     Result updateImg(@RequestParam("file") MultipartFile file, int readerId);
 
     ReaderInfo getReaderByUsername(ReaderInfo readerInfo);
+
+    int getCountByUserName(String userName);
 }

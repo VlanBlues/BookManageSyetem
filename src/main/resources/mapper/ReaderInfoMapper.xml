@@ -11,4 +11,7 @@
         where username = #{username}
         and password = #{password}
     </select>
+    <select id="getCountByUserName" resultType="java.lang.Integer">
+        select count(*) from reader_info where username = #{userName}
+    </select>
 </mapper>

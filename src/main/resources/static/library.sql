@@ -62,14 +62,14 @@ CREATE TABLE `book_info` (
   `publish` varchar(20) DEFAULT NULL,
   `ISBN` varchar(15) DEFAULT NULL,
   `introduction` text,
-  `language` varchar(4) DEFAULT NULL,
+  `language` varchar(100) DEFAULT NULL,
   `price` double(10,2) DEFAULT NULL,
   `pub_date` varchar(100) DEFAULT NULL,
   `class_id` int(11) DEFAULT NULL,
   `number` int(11) DEFAULT NULL,
   `book_img` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`book_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of book_info
@@ -191,3 +191,11 @@ CREATE TABLE `reader_likes` (
 -- ----------------------------
 -- Records of reader_likes
 -- ----------------------------
+DROP TABLE IF EXISTS `notice`;
+CREATE TABLE `notice` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` text COMMENT '消息内容',
+  `date` varchar(100) DEFAULT NULL COMMENT '创建时间',
+  `state` int(2) DEFAULT '0' COMMENT '状态0为未发布，1为已发布，-1为回收站',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;

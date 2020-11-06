@@ -56,6 +56,10 @@ spring:
   devtools:
     restart:
       enabled: true  #设置开启热部署
+  servlet:
+    multipart:
+      max-file-size: 2MB
+      max-request-size: 10MB
 
   #redis配置
 #  redis:

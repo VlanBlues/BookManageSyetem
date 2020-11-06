@@ -17,4 +17,6 @@ public interface ReaderInfoMapper extends BaseMapper<ReaderInfo> {
     ReaderInfo getReaderByUsername(ReaderInfo readerInfo);
     
     int updateReaderImg(@Param("img") String img,@Param("readerId") int readerId);
+    
+    int getCountByUserName(String userName);
 }

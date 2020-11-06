@@ -45,7 +45,7 @@ public class BookInfoServiceImpl extends ServiceImpl<BookInfoMapper, BookInfo> i
     }
 
     @Override
-    public Result updateImg(MultipartFile file, int bookId) {
+    public Result updateImg(MultipartFile file) {
         String local = "F:/img/book/";
         //String local = "F:/img/test/";
         String fileName = file.getOriginalFilename();
@@ -58,12 +58,8 @@ public class BookInfoServiceImpl extends ServiceImpl<BookInfoMapper, BookInfo> i
             Files.copy(inputStream, Paths.get(local + filename), // 这里指定了下载的位置
                     StandardCopyOption.REPLACE_EXISTING);
             filename ="http://localhost:8081/b/img/"+ filename;
-            int i = bookInfoMapper.updateBookImg(filename, bookId);
-            if(i == 1){
-                return Result.success("上传成功");
-            }else {
-                return Result.fail("上传失败");
-            }
+            //int i = bookInfoMapper.updateBookImg(filename, bookId);
+            return Result.success(filename);
         } catch (IOException e) {
             System.out.println("上传失败");
             return Result.fail("上传失败");

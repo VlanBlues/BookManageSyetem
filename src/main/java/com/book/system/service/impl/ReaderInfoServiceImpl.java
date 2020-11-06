@@ -66,4 +66,9 @@ public class ReaderInfoServiceImpl extends ServiceImpl<ReaderInfoMapper, ReaderI
     public ReaderInfo getReaderByUsername(ReaderInfo readerInfo) {
         return readerInfoMapper.getReaderByUsername(readerInfo);
     }
+
+    @Override
+    public int getCountByUserName(String userName) {
+        return readerInfoMapper.getCountByUserName(userName);
+    }
 }

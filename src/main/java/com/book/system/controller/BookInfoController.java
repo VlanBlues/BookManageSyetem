@@ -75,8 +75,8 @@ public class BookInfoController {
     }
 
     @RequestMapping("/update/bookImg")
-    public Result updateImg(@RequestParam("file") MultipartFile file, int bookId){
-
-        return bookInfoService.updateImg(file,bookId);
+    public Result updateImg(@RequestParam("file") MultipartFile file){
+        System.out.println("update");
+        return bookInfoService.updateImg(file);
     }
 }
