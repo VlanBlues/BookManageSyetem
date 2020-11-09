@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50721
 File Encoding         : 65001
 
-Date: 2020-11-04 16:34:49
+Date: 2020-11-09 16:50:59
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -69,7 +69,7 @@ CREATE TABLE `book_info` (
   `number` int(11) DEFAULT NULL,
   `book_img` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`book_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of book_info
@@ -150,6 +150,33 @@ INSERT INTO `lend_list` VALUES ('6', '6', '10000', '2017-06-15', null);
 INSERT INTO `lend_list` VALUES ('7', '1', '10001', '2017-09-02', '2017-09-02');
 
 -- ----------------------------
+-- Table structure for notice
+-- ----------------------------
+DROP TABLE IF EXISTS `notice`;
+CREATE TABLE `notice` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` text COMMENT '消息内容',
+  `create_date` varchar(100) DEFAULT NULL COMMENT '创建时间',
+  `published_date` varchar(100) DEFAULT NULL COMMENT '发布时间',
+  `state` int(2) DEFAULT '0' COMMENT '状态0为未发布，1为已发布，-1为回收站',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------
+-- Records of notice
+-- ----------------------------
+INSERT INTO `notice` VALUES ('1', '发给对方', '2020-04-19 21:00:00', '2020-11-09 14:42:06', '0');
+INSERT INTO `notice` VALUES ('2', '今晚12点整发大红包，先到先得', '2020-04-19 21:00:00', null, '0');
+INSERT INTO `notice` VALUES ('3', '【系统通知】该系统将于今晚凌晨2点到5点进行升级维护', '2020-04-19 21:00:00', null, '0');
+INSERT INTO `notice` VALUES ('5', '去玩', '2020-11-09 10:43:17', null, '-1');
+INSERT INTO `notice` VALUES ('6', '温热时', '2020-11-09 10:44:37', null, '0');
+INSERT INTO `notice` VALUES ('7', '环境了好久', '2020-11-09 10:46:51', null, '0');
+INSERT INTO `notice` VALUES ('8', 'ghjghj', '2020-11-09 10:46:59', '2020-11-09 14:43:15', '0');
+INSERT INTO `notice` VALUES ('9', '规划局规划', '2020-11-09 10:47:03', '2020-11-09 14:57:59', '0');
+INSERT INTO `notice` VALUES ('11', '很棒棒没那么', '2020-11-09 10:47:18', '2020-11-09 15:00:23', '1');
+INSERT INTO `notice` VALUES ('13', '托尔斯泰', '2020-11-09 14:33:11', '2020-11-09 14:42:24', '-1');
+
+-- ----------------------------
 -- Table structure for reader_info
 -- ----------------------------
 DROP TABLE IF EXISTS `reader_info`;
@@ -191,11 +218,3 @@ CREATE TABLE `reader_likes` (
 -- ----------------------------
 -- Records of reader_likes
 -- ----------------------------
-DROP TABLE IF EXISTS `notice`;
-CREATE TABLE `notice` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` text COMMENT '消息内容',
-  `date` varchar(100) DEFAULT NULL COMMENT '创建时间',
-  `state` int(2) DEFAULT '0' COMMENT '状态0为未发布，1为已发布，-1为回收站',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
