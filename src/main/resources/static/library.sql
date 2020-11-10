@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50721
 File Encoding         : 65001
 
-Date: 2020-11-09 16:50:59
+Date: 2020-11-10 17:05:52
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -69,7 +69,7 @@ CREATE TABLE `book_info` (
   `number` int(11) DEFAULT NULL,
   `book_img` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`book_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of book_info
@@ -135,19 +135,38 @@ CREATE TABLE `lend_list` (
   `reader_id` bigint(20) NOT NULL,
   `lend_date` date DEFAULT NULL,
   `back_date` date DEFAULT NULL,
+  `state` int(2) DEFAULT '0',
   PRIMARY KEY (`lend_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of lend_list
 -- ----------------------------
-INSERT INTO `lend_list` VALUES ('1', '1', '10000', '2017-03-15', '2017-06-16');
-INSERT INTO `lend_list` VALUES ('2', '2', '10001', '2017-06-10', '2017-09-02');
-INSERT INTO `lend_list` VALUES ('3', '3', '10003', '2017-06-12', '2017-09-02');
-INSERT INTO `lend_list` VALUES ('4', '4', '10000', '2017-03-15', '2017-09-03');
-INSERT INTO `lend_list` VALUES ('5', '5', '10002', '2017-06-15', null);
-INSERT INTO `lend_list` VALUES ('6', '6', '10000', '2017-06-15', null);
-INSERT INTO `lend_list` VALUES ('7', '1', '10001', '2017-09-02', '2017-09-02');
+INSERT INTO `lend_list` VALUES ('1', '1', '10000', '2017-03-15', '2017-06-16', null);
+INSERT INTO `lend_list` VALUES ('2', '2', '10001', '2017-06-10', '2017-09-02', null);
+INSERT INTO `lend_list` VALUES ('3', '3', '10003', '2017-06-12', '2017-09-02', null);
+INSERT INTO `lend_list` VALUES ('4', '4', '10000', '2017-03-15', '2017-09-03', null);
+INSERT INTO `lend_list` VALUES ('5', '5', '10002', '2017-06-15', null, null);
+INSERT INTO `lend_list` VALUES ('6', '6', '10000', '2017-06-15', null, null);
+INSERT INTO `lend_list` VALUES ('7', '1', '10001', '2017-09-02', '2017-09-02', null);
+INSERT INTO `lend_list` VALUES ('8', '7', '10001', '2020-11-13', '2020-11-20', '0');
+
+-- ----------------------------
+-- Table structure for login_log
+-- ----------------------------
+DROP TABLE IF EXISTS `login_log`;
+CREATE TABLE `login_log` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `reader_id` int(11) DEFAULT NULL,
+  `ip` varchar(100) DEFAULT NULL,
+  `date` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------
+-- Records of login_log
+-- ----------------------------
+INSERT INTO `login_log` VALUES ('1', '10009', '127.0.0.1', '2020-11-10');
 
 -- ----------------------------
 -- Table structure for notice
@@ -169,7 +188,7 @@ INSERT INTO `notice` VALUES ('1', '发给对方', '2020-04-19 21:00:00', '2020-1
 INSERT INTO `notice` VALUES ('2', '今晚12点整发大红包，先到先得', '2020-04-19 21:00:00', null, '0');
 INSERT INTO `notice` VALUES ('3', '【系统通知】该系统将于今晚凌晨2点到5点进行升级维护', '2020-04-19 21:00:00', null, '0');
 INSERT INTO `notice` VALUES ('5', '去玩', '2020-11-09 10:43:17', null, '-1');
-INSERT INTO `notice` VALUES ('6', '温热时', '2020-11-09 10:44:37', null, '0');
+INSERT INTO `notice` VALUES ('6', '温热时', '2020-11-09 10:44:37', '2020-11-10 09:28:42', '1');
 INSERT INTO `notice` VALUES ('7', '环境了好久', '2020-11-09 10:46:51', null, '0');
 INSERT INTO `notice` VALUES ('8', 'ghjghj', '2020-11-09 10:46:59', '2020-11-09 14:43:15', '0');
 INSERT INTO `notice` VALUES ('9', '规划局规划', '2020-11-09 10:47:03', '2020-11-09 14:57:59', '0');
@@ -188,10 +207,10 @@ CREATE TABLE `reader_info` (
   `sex` varchar(2) DEFAULT NULL,
   `birth` varchar(100) DEFAULT NULL,
   `phone` varchar(15) DEFAULT NULL,
-  `img` varchar(100) DEFAULT NULL,
+  `img` varchar(100) DEFAULT 'http://localhost:8081/img/mouse.jpg',
   `register_date` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`reader_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10010 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10014 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of reader_info
@@ -201,8 +220,11 @@ INSERT INTO `reader_info` VALUES ('10001', '王小伟', 'wangxiaowei', '123456',
 INSERT INTO `reader_info` VALUES ('10002', '王莞尔', 'wagwaner', '789456', '女', '1995-04-15', '12345678908', 'http://localhost:8081/img/mouse.jpg', '');
 INSERT INTO `reader_info` VALUES ('10003', '张明华', 'zhangminghua', '456456', '男', '1996-08-29', '12345678907', 'http://localhost:8081/img/mouse.jpg', '');
 INSERT INTO `reader_info` VALUES ('10004', '李一琛', 'liyuchen', '789512', '男', '1996-01-01', '15123659875', 'http://localhost:8081/img/mouse.jpg', '');
-INSERT INTO `reader_info` VALUES ('10006', 'lanss', '123456', '123456', '女', '1996-05-28', '13735906695', 'http://localhost:8081/img/mouse.jpg', '1998-05-28');
-INSERT INTO `reader_info` VALUES ('10009', '张伟', 'lan', '123465', '男', '2020-10-08', '123456', 'http://localhost:8081/img/mouse.jpg', null);
+INSERT INTO `reader_info` VALUES ('10006', '胜多负少', '沃尔沃二', 'sdsdfsdf', '男', '2020-11-18', '12315351311', 'http://localhost:8081/img/mouse.jpg', '1998-05-28');
+INSERT INTO `reader_info` VALUES ('10009', '张伟', 'lan', '123456', '男', '2020-10-08', '123456', 'http://localhost:8081/img/mouse.jpg', null);
+INSERT INTO `reader_info` VALUES ('10010', '99', 'lans', '99', '女', '2020-11-24', '99', 'http://localhost:8081/img/mouse.jpg', null);
+INSERT INTO `reader_info` VALUES ('10012', '胜多负少挂号费改', 'erect', 'sdvxxd', '男', '2020-11-24', '废话废话', 'http://localhost:8081/img/mouse.jpg', null);
+INSERT INTO `reader_info` VALUES ('10013', '发放给回复', '一样一样', 'jjjjjj', '男', '2020-11-19', '123456789', 'http://localhost:8081/img/mouse.jpg', '2020-11-10');
 
 -- ----------------------------
 -- Table structure for reader_likes

@@ -5,8 +5,12 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.book.system.entity.LendList;
+import com.book.system.entity.LoginLog;
 import com.book.system.entity.ReaderInfo;
+import com.book.system.service.ILoginLogService;
 import com.book.system.service.IReaderInfoService;
+import com.book.system.util.DateUtil;
+import com.book.system.util.IpUtil;
 import com.book.system.util.Result;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.io.Reader;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -36,21 +41,32 @@ public class ReaderInfoController {
     
     @Resource
     private IReaderInfoService readerInfoService;
+    
+    @Resource
+    private ILoginLogService loginLogService;
 
     @RequestMapping("/login")
-    public Result Login(@RequestBody ReaderInfo readerInfo){
+    public Result Login(@RequestBody ReaderInfo readerInfo , HttpServletRequest request){
         ReaderInfo readerByUsername = readerInfoService.getReaderByUsername(readerInfo);
         if("".equals(readerByUsername.getUsername()) || null == readerByUsername.getUsername()){
             return Result.fail("用户名密码错误！");
         }
+        LoginLog loginLog = new LoginLog();
+        loginLog.setDate(DateUtil.getStringDateShort());
+        loginLog.setIp(IpUtil.getIpAddr(request));
+        loginLog.setReaderId(readerByUsername.getReaderId());
+        loginLogService.save(loginLog);
         return Result.success(readerByUsername);
     }
 
     @RequestMapping("/updateOrSave")
     public Result updateOrSave(@RequestBody ReaderInfo readerInfo){
-        System.out.println(readerInfo.toString());
-        if(readerInfoService.getCountByUserName(readerInfo.getUsername()) == 1){
+        int countByUserName = readerInfoService.getCountByUserName(readerInfo.getUsername());
+        if(countByUserName >= 1 && readerInfo.getReaderId() != null){
             return Result.fail("用户名已存在！");
+        }
+        if(readerInfo.getRegisterDate() == null){
+            readerInfo.setRegisterDate(DateUtil.getStringDateShort());
         }
         boolean i = readerInfoService.saveOrUpdate(readerInfo);
         if(i){

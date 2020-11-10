@@ -46,6 +46,6 @@ public class IpUtil {
         } catch (Exception e) {
             ipAddress = "";
         }
-        return ipAddress;
+        return "0:0:0:0:0:0:0:1".equals(ipAddress) ? LOCALHOST : ipAddress;
     }
 }

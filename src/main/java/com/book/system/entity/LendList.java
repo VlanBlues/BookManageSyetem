@@ -34,6 +34,8 @@ public class LendList implements Serializable {
 
     private LocalDate backDate;
 
+    private Integer state;
+    
     @TableField(exist = false)
     private BookInfo bookInfo;
 
