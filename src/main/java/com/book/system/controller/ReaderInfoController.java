@@ -48,7 +48,7 @@ public class ReaderInfoController {
     @RequestMapping("/login")
     public Result Login(@RequestBody ReaderInfo readerInfo , HttpServletRequest request){
         ReaderInfo readerByUsername = readerInfoService.getReaderByUsername(readerInfo);
-        if("".equals(readerByUsername.getUsername()) || null == readerByUsername.getUsername()){
+        if(null == readerByUsername){
             return Result.fail("用户名密码错误！");
         }
         LoginLog loginLog = new LoginLog();
@@ -62,7 +62,7 @@ public class ReaderInfoController {
     @RequestMapping("/updateOrSave")
     public Result updateOrSave(@RequestBody ReaderInfo readerInfo){
         int countByUserName = readerInfoService.getCountByUserName(readerInfo.getUsername());
-        if(countByUserName >= 1 && readerInfo.getReaderId() != null){
+        if(countByUserName >= 1 && readerInfo.getReaderId() == null){
             return Result.fail("用户名已存在！");
         }
         if(readerInfo.getRegisterDate() == null){

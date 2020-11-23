@@ -1,6 +1,7 @@
 package com.book.system;
 
 import com.book.system.controller.ClassInfoController;
+import com.book.system.entity.BookInfo;
 import com.book.system.entity.ReaderInfo;
 import com.book.system.mapper.NoticeMapper;
 import com.book.system.service.ILendListService;
@@ -10,6 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.util.ClassUtils;
 
 import javax.annotation.Resource;
+import java.lang.reflect.Field;
 
 @SpringBootTest
 class SystemApplicationTests {
