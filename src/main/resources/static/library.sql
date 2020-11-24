@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50721
 File Encoding         : 65001
 
-Date: 2020-11-10 17:05:52
+Date: 2020-11-24 17:29:21
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -24,11 +24,15 @@ CREATE TABLE `book_collection` (
   `book_id` int(20) NOT NULL,
   `reader_id` int(20) NOT NULL,
   PRIMARY KEY (`collection_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of book_collection
 -- ----------------------------
+INSERT INTO `book_collection` VALUES ('2', '2', '10000');
+INSERT INTO `book_collection` VALUES ('3', '3', '10000');
+INSERT INTO `book_collection` VALUES ('4', '9', '10000');
+INSERT INTO `book_collection` VALUES ('5', '4', '10000');
 
 -- ----------------------------
 -- Table structure for book_comment
@@ -74,7 +78,7 @@ CREATE TABLE `book_info` (
 -- ----------------------------
 -- Records of book_info
 -- ----------------------------
-INSERT INTO `book_info` VALUES ('1', '大雪中的山庄', '东野圭吾 ', '北京十月文艺出版社', '9787530216835', '东野圭吾长篇小说杰作，中文简体首次出版。 一出没有剧本的舞台剧，为什么能让七个演员赌上全部人生.东野圭吾就是有这样过人的本领，能从充满悬念的案子写出荡气回肠的情感，在极其周密曲折的同时写出人性的黑暗与美丽。 一家与外界隔绝的民宿里，七个演员被要求住满四天，接受导演的考验，但不断有人失踪。难道这并非正常排练，而是有人布下陷阱要杀他们。 那时候我开始喜欢上戏剧和音乐，《大雪中的山庄》一书的灵感就来源于此。我相信这次的诡计肯定会让人大吃一惊。——东野圭吾', '中文', '35.00', '2017-06-01', '9', '1', 'http://localhost:8081/img/book.jpg');
+INSERT INTO `book_info` VALUES ('1', '大雪中的山庄', '东野圭吾 ', '北京十月文艺出版社', '9787530216835', '东野圭吾长篇小说杰作，中文简体首次出版。 一出没有剧本的舞台剧，为什么能让七个演员赌上全部人生.东野圭吾就是有这样过人的本领，能从充满悬念的案子写出荡气回肠的情感，在极其周密曲折的同时写出人性的黑暗与美丽。 一家与外界隔绝的民宿里，七个演员被要求住满四天，接受导演的考验，但不断有人失踪。难道这并非正常排练，而是有人布下陷阱要杀他们。 那时候我开始喜欢上戏剧和音乐，《大雪中的山庄》一书的灵感就来源于此。我相信这次的诡计肯定会让人大吃一惊。——东野圭吾', '中文', '35.00', '2017-06-01', '9', '1', 'http://localhost:8081/b/img/1441968830.jpg');
 INSERT INTO `book_info` VALUES ('2', '三生三世 十里桃花', '唐七公子 ', '沈阳出版社', '9787544138000', '三生三世，她和他，是否注定背负一段纠缠的姻缘？\r\n三生三世，她和他，是否终能互许一个生生世世的承诺？', '中文', '26.80', '2009-01-06', '7', '1', 'http://localhost:8081/img/book.jpg');
 INSERT INTO `book_info` VALUES ('3', '何以笙箫默', '顾漫 ', '朝华出版社', '9787505414709', '一段年少时的爱恋，牵出一生的纠缠。大学时代的赵默笙阳光灿烂，对法学系大才子何以琛一见倾心，开朗直率的她拔足倒追，终于使才气出众的他为她停留驻足。然而，不善表达的他终于使她在一次伤心之下远走他乡……', '中文', '15.00', '2007-04-03', '7', '1', 'http://localhost:8081/img/book.jpg');
 INSERT INTO `book_info` VALUES ('4', '11处特工皇妃', '潇湘冬儿', '江苏文艺出版社', '9787539943893', '《11处特工皇妃(套装上中下册)》内容简介：她是国安局军情十一处惊才绝艳的王牌军师——收集情报、策划部署、进不友好国家布置暗杀任务……她运筹帷幄之中，决胜于千里之外，堪称军情局大厦的定海神针。', '中文', '74.80', '2011-05-05', '7', '1', 'http://localhost:8081/img/book.jpg');
@@ -161,12 +165,29 @@ CREATE TABLE `login_log` (
   `ip` varchar(100) DEFAULT NULL,
   `date` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of login_log
 -- ----------------------------
 INSERT INTO `login_log` VALUES ('1', '10009', '127.0.0.1', '2020-11-10');
+INSERT INTO `login_log` VALUES ('2', '10000', '127.0.0.1', '2020-11-23');
+INSERT INTO `login_log` VALUES ('3', '10000', '127.0.0.1', '2020-11-23');
+INSERT INTO `login_log` VALUES ('4', '10000', '127.0.0.1', '2020-11-23');
+INSERT INTO `login_log` VALUES ('5', '10000', '127.0.0.1', '2020-11-23');
+INSERT INTO `login_log` VALUES ('6', '10000', '127.0.0.1', '2020-11-23');
+INSERT INTO `login_log` VALUES ('7', '10000', '127.0.0.1', '2020-11-23');
+INSERT INTO `login_log` VALUES ('8', '10000', '127.0.0.1', '2020-11-23');
+INSERT INTO `login_log` VALUES ('9', '10000', '127.0.0.1', '2020-11-23');
+INSERT INTO `login_log` VALUES ('10', '10000', '127.0.0.1', '2020-11-23');
+INSERT INTO `login_log` VALUES ('11', '10000', '127.0.0.1', '2020-11-23');
+INSERT INTO `login_log` VALUES ('12', '10000', '127.0.0.1', '2020-11-24');
+INSERT INTO `login_log` VALUES ('13', '10000', '127.0.0.1', '2020-11-24');
+INSERT INTO `login_log` VALUES ('14', '10000', '127.0.0.1', '2020-11-24');
+INSERT INTO `login_log` VALUES ('15', '10000', '127.0.0.1', '2020-11-24');
+INSERT INTO `login_log` VALUES ('16', '10000', '127.0.0.1', '2020-11-24');
+INSERT INTO `login_log` VALUES ('17', '10000', '127.0.0.1', '2020-11-24');
+INSERT INTO `login_log` VALUES ('18', '10000', '127.0.0.1', '2020-11-24');
 
 -- ----------------------------
 -- Table structure for notice
@@ -210,7 +231,7 @@ CREATE TABLE `reader_info` (
   `img` varchar(100) DEFAULT 'http://localhost:8081/img/mouse.jpg',
   `register_date` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`reader_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10014 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10021 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of reader_info
@@ -225,6 +246,10 @@ INSERT INTO `reader_info` VALUES ('10009', '张伟', 'lan', '123456', '男', '20
 INSERT INTO `reader_info` VALUES ('10010', '99', 'lans', '99', '女', '2020-11-24', '99', 'http://localhost:8081/img/mouse.jpg', null);
 INSERT INTO `reader_info` VALUES ('10012', '胜多负少挂号费改', 'erect', 'sdvxxd', '男', '2020-11-24', '废话废话', 'http://localhost:8081/img/mouse.jpg', null);
 INSERT INTO `reader_info` VALUES ('10013', '发放给回复', '一样一样', 'jjjjjj', '男', '2020-11-19', '123456789', 'http://localhost:8081/img/mouse.jpg', '2020-11-10');
+INSERT INTO `reader_info` VALUES ('10014', '456', '123123', '456456', '男', '2020-11-10', '456789456', 'http://localhost:8081/img/mouse.jpg', '2020-11-23');
+INSERT INTO `reader_info` VALUES ('10017', '456', '456', '456', '女', '2020-11-10', '456', 'http://localhost:8081/img/mouse.jpg', '2020-11-23');
+INSERT INTO `reader_info` VALUES ('10018', '1123', '123', '123', '男', '2020-11-25', '123', 'http://localhost:8081/img/mouse.jpg', '2020-11-23');
+INSERT INTO `reader_info` VALUES ('10020', '123', '1234', '123', '女', '2020-11-11', '123', 'http://localhost:8081/img/mouse.jpg', '2020-11-23');
 
 -- ----------------------------
 -- Table structure for reader_likes

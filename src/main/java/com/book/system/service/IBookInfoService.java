@@ -20,7 +20,7 @@ import java.util.List;
 public interface IBookInfoService extends IService<BookInfo> {
     List<BookInfo> getBookByClassOrSearchContent(String classId,String content);
 
-    Result getList(String bookName, Integer current, Integer size);
+    Result getList(String bookName,String readerId, Integer current, Integer size);
 
     Result updateImg(MultipartFile file);
 }

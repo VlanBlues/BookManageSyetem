@@ -16,11 +16,17 @@
         <result property="number" column="number"></result>
         <result property="bookImg" column="book_img"></result>
         <association property="classInfo" javaType="com.book.system.entity.ClassInfo" resultMap="classResult"></association>
+        <association property="bookCollection" javaType="com.book.system.entity.BookCollection" resultMap="bookCollectionResult"></association>
     </resultMap>
     <resultMap id="classResult" type="com.book.system.entity.ClassInfo">
         <id property="value" column="class_id"></id>
         <result property="label" column="class_name"></result>
     </resultMap>
+    <resultMap id="bookCollectionResult" type="com.book.system.entity.BookCollection">
+        <id property="collectionId" column="collection_id"></id>
+        <result property="isCollection" column="is_collection"></result>
+    </resultMap>
+    
     <update id="updateBookImg">
         update book_info set book_img = #{bookImg} where book_id = #{bookId}
     </update>
@@ -39,6 +45,8 @@
         select  *
         from book_info a join class_info b
         on a.class_id = b.class_id
+        left join book_collection c 
+        on a.book_id = c.book_id and c.reader_id = #{readerId}
         <where>
             <if test="null != bookName">
                 a.book_name like concat('%',#{bookName},'%')

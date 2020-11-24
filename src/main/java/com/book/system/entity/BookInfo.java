@@ -52,4 +52,6 @@ public class BookInfo implements Serializable {
     @TableField(exist = false)
     private ClassInfo classInfo;
 
+    @TableField(exist = false)
+    private BookCollection bookCollection;
 }

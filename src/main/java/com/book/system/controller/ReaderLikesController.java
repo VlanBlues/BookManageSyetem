@@ -1,6 +1,8 @@
 package com.book.system.controller;
 
 
+import com.book.system.service.IReaderLikesService;
+import com.book.system.util.Result;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
@@ -14,7 +16,12 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2020-10-21
  */
 @RestController
-@RequestMapping("/reader/likes")
+@RequestMapping("/book/likes")
 public class ReaderLikesController {
-    
+    private IReaderLikesService readerLikesService;
+    @RequestMapping("/getByReaderId")
+    public Result ClassName(String readerId){
+        readerLikesService.list();
+        return null;
+    }
 }

@@ -18,7 +18,7 @@ import java.util.List;
 public interface BookInfoMapper extends BaseMapper<BookInfo> {
     List<BookInfo> getBookByClassOrSearchContent(@Param("classId") String classId,@Param("content") String content);
     
-    List<BookInfo> getList(@Param("bookName") String bookName,Page<BookInfo> page);
+    List<BookInfo> getList(@Param("bookName") String bookName,@Param("readerId") String readerId,Page<BookInfo> page);
 
     int updateBookImg(@Param("bookImg") String bookImg,@Param("bookId") Integer bookId);
 }

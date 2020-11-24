@@ -38,9 +38,9 @@ public class BookInfoServiceImpl extends ServiceImpl<BookInfoMapper, BookInfo> i
     }
 
     @Override
-    public Result getList(String bookName, Integer current, Integer size) {
+    public Result getList(String bookName,String readerId,Integer current, Integer size) {
         Page<BookInfo> bookInfoPage = new Page<>(current,size);
-        Page<BookInfo> bookInfoPage1 = bookInfoPage.setRecords(bookInfoMapper.getList(bookName, bookInfoPage));
+        Page<BookInfo> bookInfoPage1 = bookInfoPage.setRecords(bookInfoMapper.getList(bookName,readerId, bookInfoPage));
         return Result.success(bookInfoPage1);
     }
 

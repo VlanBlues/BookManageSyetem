@@ -1,6 +1,7 @@
 package com.book.system.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
 import lombok.Data;
@@ -27,5 +28,6 @@ public class BookCollection implements Serializable {
 
     private Integer readerId;
 
-
+    @TableField(exist = false)
+    private Integer isCollection;
 }

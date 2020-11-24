@@ -69,8 +69,8 @@ public class BookInfoController {
     }
     
     @RequestMapping("/getList")
-    public Result getList(String bookName,Integer pageIndex,Integer pageSize){
-        Result bookInfoServiceList = bookInfoService.getList(bookName, pageIndex, pageSize);
+    public Result getList(String bookName,String readerId,Integer pageIndex,Integer pageSize){
+        Result bookInfoServiceList = bookInfoService.getList(bookName,readerId, pageIndex, pageSize);
         return bookInfoServiceList;
     }
 

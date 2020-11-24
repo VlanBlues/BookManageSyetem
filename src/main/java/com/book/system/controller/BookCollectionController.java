@@ -62,8 +62,11 @@ public class BookCollectionController {
     }
 
     @RequestMapping("/del")
-    public Result deleteBookCollection(String collectionId) {
-        boolean del = bookCollectionService.removeById(collectionId);
+    public Result deleteBookCollection(@RequestBody BookCollection bookCollection) {
+        QueryWrapper wrapper = new QueryWrapper();
+        wrapper.eq("book_id",bookCollection.getBookId());
+        wrapper.eq("reader_id",bookCollection.getReaderId());
+        boolean del = bookCollectionService.remove(wrapper);
         if (del) {
             return Result.success("取消收藏！");
         }
