@@ -46,10 +46,11 @@ public class BookCollectionController {
     }
     
     @RequestMapping("/getByReaderId")
-    public Result getByReaderId(String readerId) {
+    public Result getByReaderId(Integer pageIndex,Integer pageSize,String readerId) {
         QueryWrapper wrapper = new QueryWrapper();
+        IPage<BookCollection> bookCollectionPage = new Page<>(pageIndex,pageSize);
         wrapper.eq("reader_id", readerId);
-        return Result.success(bookCollectionService.list(wrapper));
+        return Result.success(bookCollectionService.page(bookCollectionPage, wrapper));
     }
 
     @RequestMapping("/add")

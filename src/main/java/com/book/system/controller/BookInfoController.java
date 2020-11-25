@@ -74,6 +74,12 @@ public class BookInfoController {
         return bookInfoServiceList;
     }
 
+    @RequestMapping("/getListByReaderId")
+    public Result getListByReaderId(String readerId,Integer pageIndex,Integer pageSize){
+        Result bookInfoServiceList = bookInfoService.getListByReaderId(readerId, pageIndex, pageSize);
+        return bookInfoServiceList;
+    }
+
     @RequestMapping("/update/bookImg")
     public Result updateImg(@RequestParam("file") MultipartFile file){
         System.out.println("update");

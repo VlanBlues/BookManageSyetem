@@ -27,7 +27,5 @@ public class BookCollection implements Serializable {
     private Integer bookId;
 
     private Integer readerId;
-
-    @TableField(exist = false)
-    private Integer isCollection;
+    
 }

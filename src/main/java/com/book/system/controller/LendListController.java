@@ -10,6 +10,7 @@ import com.book.system.util.MD5Util;
 import com.book.system.util.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
@@ -28,7 +29,7 @@ import java.util.Map;
  * @since 2020-10-21
  */
 @RestController
-@RequestMapping("/lendList")
+@RequestMapping("/subscribe")
 public class LendListController {
     
     @Resource
@@ -46,5 +47,10 @@ public class LendListController {
     public Result getLendList(Integer readerId,Integer current,Integer size){
         Result lendInfo = lendListService.getLendInfo(readerId,current,size);
         return lendInfo;
+    }
+    
+    @RequestMapping("/add")
+    public Result add(@RequestBody LendList lendList){
+        return null;
     }
 }

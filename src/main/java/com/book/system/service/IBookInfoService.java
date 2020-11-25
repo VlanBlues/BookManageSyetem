@@ -23,4 +23,6 @@ public interface IBookInfoService extends IService<BookInfo> {
     Result getList(String bookName,String readerId, Integer current, Integer size);
 
     Result updateImg(MultipartFile file);
+
+    Result getListByReaderId(String readerId, Integer current, Integer size);
 }

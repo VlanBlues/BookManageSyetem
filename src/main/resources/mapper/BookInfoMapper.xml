@@ -24,7 +24,8 @@
     </resultMap>
     <resultMap id="bookCollectionResult" type="com.book.system.entity.BookCollection">
         <id property="collectionId" column="collection_id"></id>
-        <result property="isCollection" column="is_collection"></result>
+        <result property="bookId" column="b_id"></result>
+        <result property="readerId" column="r_id"></result>
     </resultMap>
     
     <update id="updateBookImg">
@@ -42,15 +43,35 @@
         </where>
     </select>
     <select id="getList" resultMap="bookInfoResult">
-        select  *
-        from book_info a join class_info b
-        on a.class_id = b.class_id
-        left join book_collection c 
-        on a.book_id = c.book_id and c.reader_id = #{readerId}
+        select  a.*,
+        b.*,
+        c.collection_id,
+        c.book_id as b_id,
+        c.reader_id as r_id
+        from book_info a
+            join class_info b
+                on a.class_id = b.class_id
+            left join book_collection c
+                on a.book_id = c.book_id 
+                and c.reader_id = #{readerId}
         <where>
             <if test="null != bookName">
                 a.book_name like concat('%',#{bookName},'%')
             </if>
         </where>
+        order by a.book_id
+    </select>
+    <select id="getListByReaderId" resultMap="bookInfoResult">
+        select  a.*,
+            b.*,
+            c.collection_id,
+            c.book_id as b_id,
+            c.reader_id as r_id
+        from book_info a
+            join class_info b
+                on a.class_id = b.class_id
+            right join book_collection c
+                on a.book_id = c.book_id and c.reader_id = #{readerId}
+        order by a.book_id
     </select>
 </mapper>
