@@ -15,5 +15,5 @@ import java.util.Map;
  * @since 2020-10-21
  */
 public interface ILendListService extends IService<LendList> {
-    Result getLendInfo(Integer readerId,Integer current,Integer size);
+    Result getLendInfo(Integer readerId,Integer state,Integer current,Integer size);
 }

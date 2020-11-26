@@ -27,10 +27,11 @@ public class LendListServiceImpl extends ServiceImpl<LendListMapper, LendList> i
 
     @Resource
     private LendListMapper lendListMapper;
+
     @Override
-    public Result getLendInfo(Integer readerId,Integer current,Integer size) {
+    public Result getLendInfo(Integer readerId, Integer state, Integer current, Integer size) {
         Page<LendList> lendListPage = new Page<>(current,size);
-        List<LendList> lendInfo = lendListMapper.getLendInfo(readerId, lendListPage);
+        List<LendList> lendInfo = lendListMapper.getLendInfo(readerId,state,lendListPage);
         Page<LendList> lendListPage1 = lendListPage.setRecords(lendInfo);
         return Result.success(lendListPage1);
     }

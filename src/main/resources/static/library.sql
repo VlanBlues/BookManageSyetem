@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50721
 File Encoding         : 65001
 
-Date: 2020-11-24 17:29:21
+Date: 2020-11-26 17:29:44
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -24,15 +24,15 @@ CREATE TABLE `book_collection` (
   `book_id` int(20) NOT NULL,
   `reader_id` int(20) NOT NULL,
   PRIMARY KEY (`collection_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of book_collection
 -- ----------------------------
-INSERT INTO `book_collection` VALUES ('2', '2', '10000');
-INSERT INTO `book_collection` VALUES ('3', '3', '10000');
-INSERT INTO `book_collection` VALUES ('4', '9', '10000');
-INSERT INTO `book_collection` VALUES ('5', '4', '10000');
+INSERT INTO `book_collection` VALUES ('20', '3', '10000');
+INSERT INTO `book_collection` VALUES ('34', '3', '10000');
+INSERT INTO `book_collection` VALUES ('36', '2', '10000');
+INSERT INTO `book_collection` VALUES ('37', '1', '10000');
 
 -- ----------------------------
 -- Table structure for book_comment
@@ -83,7 +83,7 @@ INSERT INTO `book_info` VALUES ('2', '三生三世 十里桃花', '唐七公子 
 INSERT INTO `book_info` VALUES ('3', '何以笙箫默', '顾漫 ', '朝华出版社', '9787505414709', '一段年少时的爱恋，牵出一生的纠缠。大学时代的赵默笙阳光灿烂，对法学系大才子何以琛一见倾心，开朗直率的她拔足倒追，终于使才气出众的他为她停留驻足。然而，不善表达的他终于使她在一次伤心之下远走他乡……', '中文', '15.00', '2007-04-03', '7', '1', 'http://localhost:8081/img/book.jpg');
 INSERT INTO `book_info` VALUES ('4', '11处特工皇妃', '潇湘冬儿', '江苏文艺出版社', '9787539943893', '《11处特工皇妃(套装上中下册)》内容简介：她是国安局军情十一处惊才绝艳的王牌军师——收集情报、策划部署、进不友好国家布置暗杀任务……她运筹帷幄之中，决胜于千里之外，堪称军情局大厦的定海神针。', '中文', '74.80', '2011-05-05', '7', '1', 'http://localhost:8081/img/book.jpg');
 INSERT INTO `book_info` VALUES ('5', '人类简史', '[以色列] 尤瓦尔·赫拉利 ', '中信出版社', '9787508647357', '十万年前，地球上至少有六种不同的人\r\n但今日，世界舞台为什么只剩下了我们自己？\r\n从只能啃食虎狼吃剩的残骨的猿人，到跃居食物链顶端的智人，\r\n从雪维洞穴壁上的原始人手印，到阿姆斯壮踩上月球的脚印，\r\n从认知革命、农业革命，到科学革命、生物科技革命，\r\n我们如何登上世界舞台成为万物之灵的？\r\n从公元前1776年的《汉摩拉比法典》，到1776年的美国独立宣言，\r\n从帝国主义、资本主义，到自由主义、消费主义，\r\n从兽欲，到物欲，从兽性、人性，到神性，\r\n我们了解自己吗？我们过得更快乐吗？\r\n我们究竟希望自己得到什么、变成什么？', '英文', '68.00', '2014-11-01', '11', '1', 'http://localhost:8081/img/book.jpg');
-INSERT INTO `book_info` VALUES ('6', '明朝那些事儿（1-9）', '当年明月 ', '中国海关出版社', '9787801656087', '《明朝那些事儿》讲述从1344年到1644年，明朝三百年间的历史。作品以史料为基础，以年代和具体人物为主线，运用小说的笔法，对明朝十七帝和其他王公权贵和小人物的命运进行全景展示，尤其对官场政治、战争、帝王心术着墨最多。作品也是一部明朝政治经济制度、人伦道德的演义。', '中文', '358.20', '2009-04-06', '11', '1', 'http://localhost:8081/img/book.jpg');
+INSERT INTO `book_info` VALUES ('6', '明朝那些事儿（1-9）', '当年明月 ', '中国海关出版社', '9787801656087', '《明朝那些事儿》讲述从1344年到1644年，明朝三百年间的历史。作品以史料为基础，以年代和具体人物为主线，运用小说的笔法，对明朝十七帝和其他王公权贵和小人物的命运进行全景展示，尤其对官场政治、战争、帝王心术着墨最多。作品也是一部明朝政治经济制度、人伦道德的演义。', '中文', '358.20', '2009-04-06', '11', '1', 'http://localhost:8081/b/img/9648159528.jpg');
 INSERT INTO `book_info` VALUES ('7', '经济学原理（上下）', '[美] 曼昆 ', '机械工业出版社', '9787111126768', '此《经济学原理》的第3版把较多篇幅用于应用与政策，较少篇幅用于正规的经济理论。书中主要从供给与需求、企业行为与消费者选择理论、长期经济增长与短期经济波动以及宏观经济政策等角度深入浅出地剖析了经济学家们的世界观。', '英文', '88.00', '2003-08-05', '6', '1', 'http://localhost:8081/img/book.jpg');
 INSERT INTO `book_info` VALUES ('8', '方向', '马克-安托万·马修 ', '后浪丨北京联合出版公司', '9787020125265', '《方向》即便在马修的作品中也算得最独特的：不着一字，尽得风流。原作本无一字，标题只是一个→，出版时才加了个书名Sens——既可以指“方向”，也可以指“意义”。 《方向》没有“字”，但有自己的语言——请读者在尽情释放想象力和独立思考之余，破解作者的密码，听听作者对荒诞的看法。', '中文', '99.80', '2017-04-01', '9', '1', 'http://localhost:8081/img/book.jpg');
 INSERT INTO `book_info` VALUES ('9', '画的秘密', '马克-安托万·马修 ', '北京联合出版公司·后浪出版公司', '9787550265608', '一本关于友情的疗伤图像小说，直击人内心最为隐秘的情感。 一部追寻艺术的纸上悬疑电影，揭示命运宇宙中奇诡的真相。 ★ 《画的秘密》荣获欧洲第二大漫画节“瑞士谢尔漫画节最佳作品奖”。 作者曾两度夺得安古兰国际漫画节重要奖项。 ★ 《画的秘密》是一部罕见的、结合了拼贴、镜像、3D等叙事手法的实验型漫画作品。作者巧妙地调度光线、纬度、时间、记忆，在一个悬念重重又温情治愈的故事中，注入了一个有关命运的哲学议题。', '中文', '60.00', '2016-01-01', '9', '0', 'http://localhost:8081/img/book.jpg');
@@ -137,23 +137,26 @@ CREATE TABLE `lend_list` (
   `lend_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `book_id` bigint(20) NOT NULL,
   `reader_id` bigint(20) NOT NULL,
-  `lend_date` date DEFAULT NULL,
-  `back_date` date DEFAULT NULL,
+  `lend_date` varchar(20) DEFAULT NULL,
+  `back_date` varchar(20) DEFAULT NULL,
   `state` int(2) DEFAULT '0',
   PRIMARY KEY (`lend_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of lend_list
 -- ----------------------------
-INSERT INTO `lend_list` VALUES ('1', '1', '10000', '2017-03-15', '2017-06-16', null);
-INSERT INTO `lend_list` VALUES ('2', '2', '10001', '2017-06-10', '2017-09-02', null);
-INSERT INTO `lend_list` VALUES ('3', '3', '10003', '2017-06-12', '2017-09-02', null);
-INSERT INTO `lend_list` VALUES ('4', '4', '10000', '2017-03-15', '2017-09-03', null);
-INSERT INTO `lend_list` VALUES ('5', '5', '10002', '2017-06-15', null, null);
-INSERT INTO `lend_list` VALUES ('6', '6', '10000', '2017-06-15', null, null);
-INSERT INTO `lend_list` VALUES ('7', '1', '10001', '2017-09-02', '2017-09-02', null);
+INSERT INTO `lend_list` VALUES ('1', '1', '10000', '2020-03-15', '2020-06-16', '2');
+INSERT INTO `lend_list` VALUES ('2', '2', '10001', '2020-06-10', '2020-09-02', '2');
+INSERT INTO `lend_list` VALUES ('3', '3', '10003', '2020-06-12', '2020-09-02', '2');
+INSERT INTO `lend_list` VALUES ('4', '4', '10000', '2020-03-15', '2020-09-03', '2');
+INSERT INTO `lend_list` VALUES ('5', '5', '10002', '2020-06-15', null, '0');
+INSERT INTO `lend_list` VALUES ('6', '6', '10000', '2020-06-15', null, '0');
+INSERT INTO `lend_list` VALUES ('7', '1', '10001', '2020-09-02', '2020-09-02', '2');
 INSERT INTO `lend_list` VALUES ('8', '7', '10001', '2020-11-13', '2020-11-20', '0');
+INSERT INTO `lend_list` VALUES ('9', '1', '10000', '2020-11-26', null, '0');
+INSERT INTO `lend_list` VALUES ('10', '2', '10000', '2020-11-26', null, '0');
+INSERT INTO `lend_list` VALUES ('11', '3', '10000', '2020-11-26', null, '0');
 
 -- ----------------------------
 -- Table structure for login_log
@@ -165,7 +168,7 @@ CREATE TABLE `login_log` (
   `ip` varchar(100) DEFAULT NULL,
   `date` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=72 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of login_log
@@ -188,6 +191,59 @@ INSERT INTO `login_log` VALUES ('15', '10000', '127.0.0.1', '2020-11-24');
 INSERT INTO `login_log` VALUES ('16', '10000', '127.0.0.1', '2020-11-24');
 INSERT INTO `login_log` VALUES ('17', '10000', '127.0.0.1', '2020-11-24');
 INSERT INTO `login_log` VALUES ('18', '10000', '127.0.0.1', '2020-11-24');
+INSERT INTO `login_log` VALUES ('19', '10000', '127.0.0.1', '2020-11-25');
+INSERT INTO `login_log` VALUES ('20', '10000', '127.0.0.1', '2020-11-25');
+INSERT INTO `login_log` VALUES ('21', '10000', '127.0.0.1', '2020-11-26');
+INSERT INTO `login_log` VALUES ('22', '10000', '127.0.0.1', '2020-11-26');
+INSERT INTO `login_log` VALUES ('23', '10000', '127.0.0.1', '2020-11-26');
+INSERT INTO `login_log` VALUES ('24', '10000', '127.0.0.1', '2020-11-26');
+INSERT INTO `login_log` VALUES ('25', '10000', '127.0.0.1', '2020-11-26');
+INSERT INTO `login_log` VALUES ('26', '10000', '127.0.0.1', '2020-11-26');
+INSERT INTO `login_log` VALUES ('27', '10000', '127.0.0.1', '2020-11-26');
+INSERT INTO `login_log` VALUES ('28', '10000', '127.0.0.1', '2020-11-26');
+INSERT INTO `login_log` VALUES ('29', '10000', '127.0.0.1', '2020-11-26');
+INSERT INTO `login_log` VALUES ('30', '10000', '127.0.0.1', '2020-11-26');
+INSERT INTO `login_log` VALUES ('31', '10000', '127.0.0.1', '2020-11-26');
+INSERT INTO `login_log` VALUES ('32', '10000', '127.0.0.1', '2020-11-26');
+INSERT INTO `login_log` VALUES ('33', '10000', '127.0.0.1', '2020-11-26');
+INSERT INTO `login_log` VALUES ('34', '10000', '127.0.0.1', '2020-11-26');
+INSERT INTO `login_log` VALUES ('35', '10000', '127.0.0.1', '2020-11-26');
+INSERT INTO `login_log` VALUES ('36', '10000', '127.0.0.1', '2020-11-26');
+INSERT INTO `login_log` VALUES ('37', '10000', '127.0.0.1', '2020-11-26');
+INSERT INTO `login_log` VALUES ('38', '10000', '127.0.0.1', '2020-11-26');
+INSERT INTO `login_log` VALUES ('39', '10000', '127.0.0.1', '2020-11-26');
+INSERT INTO `login_log` VALUES ('40', '10000', '127.0.0.1', '2020-11-26');
+INSERT INTO `login_log` VALUES ('41', '10000', '127.0.0.1', '2020-11-26');
+INSERT INTO `login_log` VALUES ('42', '10000', '127.0.0.1', '2020-11-26');
+INSERT INTO `login_log` VALUES ('43', '10000', '127.0.0.1', '2020-11-26');
+INSERT INTO `login_log` VALUES ('44', '10000', '127.0.0.1', '2020-11-26');
+INSERT INTO `login_log` VALUES ('45', '10000', '127.0.0.1', '2020-11-26');
+INSERT INTO `login_log` VALUES ('46', '10000', '127.0.0.1', '2020-11-26');
+INSERT INTO `login_log` VALUES ('47', '10000', '127.0.0.1', '2020-11-26');
+INSERT INTO `login_log` VALUES ('48', '10000', '127.0.0.1', '2020-11-26');
+INSERT INTO `login_log` VALUES ('49', '10000', '127.0.0.1', '2020-11-26');
+INSERT INTO `login_log` VALUES ('50', '10000', '127.0.0.1', '2020-11-26');
+INSERT INTO `login_log` VALUES ('51', '10000', '127.0.0.1', '2020-11-26');
+INSERT INTO `login_log` VALUES ('52', '10000', '127.0.0.1', '2020-11-26');
+INSERT INTO `login_log` VALUES ('53', '10000', '127.0.0.1', '2020-11-26');
+INSERT INTO `login_log` VALUES ('54', '10000', '127.0.0.1', '2020-11-26');
+INSERT INTO `login_log` VALUES ('55', '10000', '127.0.0.1', '2020-11-26');
+INSERT INTO `login_log` VALUES ('56', '10000', '127.0.0.1', '2020-11-26');
+INSERT INTO `login_log` VALUES ('57', '10000', '127.0.0.1', '2020-11-26');
+INSERT INTO `login_log` VALUES ('58', '10000', '127.0.0.1', '2020-11-26');
+INSERT INTO `login_log` VALUES ('59', '10000', '127.0.0.1', '2020-11-26');
+INSERT INTO `login_log` VALUES ('60', '10000', '127.0.0.1', '2020-11-26');
+INSERT INTO `login_log` VALUES ('61', '10000', '127.0.0.1', '2020-11-26');
+INSERT INTO `login_log` VALUES ('62', '10000', '127.0.0.1', '2020-11-26');
+INSERT INTO `login_log` VALUES ('63', '10000', '127.0.0.1', '2020-11-26');
+INSERT INTO `login_log` VALUES ('64', '10000', '127.0.0.1', '2020-11-26');
+INSERT INTO `login_log` VALUES ('65', '10000', '127.0.0.1', '2020-11-26');
+INSERT INTO `login_log` VALUES ('66', '10000', '127.0.0.1', '2020-11-26');
+INSERT INTO `login_log` VALUES ('67', '10000', '127.0.0.1', '2020-11-26');
+INSERT INTO `login_log` VALUES ('68', '10000', '127.0.0.1', '2020-11-26');
+INSERT INTO `login_log` VALUES ('69', '10000', '127.0.0.1', '2020-11-26');
+INSERT INTO `login_log` VALUES ('70', '10000', '127.0.0.1', '2020-11-26');
+INSERT INTO `login_log` VALUES ('71', '10000', '127.0.0.1', '2020-11-26');
 
 -- ----------------------------
 -- Table structure for notice

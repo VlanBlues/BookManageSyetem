@@ -6,6 +6,8 @@ import java.time.LocalDate;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
+import java.util.Date;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -30,9 +32,9 @@ public class LendList implements Serializable {
 
     private Long readerId;
 
-    private LocalDate lendDate;
+    private String lendDate;
 
-    private LocalDate backDate;
+    private String backDate;
 
     private Integer state;
     

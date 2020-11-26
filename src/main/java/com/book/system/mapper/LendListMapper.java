@@ -17,6 +17,6 @@ import java.util.List;
  * @since 2020-10-21
  */
 public interface LendListMapper extends BaseMapper<LendList> {
-    List<LendList> getLendInfo(@Param("readerId") Integer readerId,Page<LendList> page);
+    List<LendList> getLendInfo(@Param("readerId") Integer readerId,@Param("state") Integer state,Page<LendList> page);
     
 }

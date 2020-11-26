@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.book.system.entity.LendList;
 import com.book.system.service.ILendListService;
+import com.book.system.util.DateUtil;
 import com.book.system.util.MD5Util;
 import com.book.system.util.Result;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,22 +36,36 @@ public class LendListController {
     @Resource
     private ILendListService lendListService;
     
-    @RequestMapping("/readerId/{readerId}")
-    public Result getByReaderId(@PathVariable String readerId){
+    @RequestMapping("/getIsSubscribe")
+    public Result getByReaderId(String bookId,String readerId){
         QueryWrapper wrapper = new QueryWrapper();
+        wrapper.eq("book_id",bookId);
         wrapper.eq("reader_id",readerId);
+        wrapper.ne("state",2);
         List list = lendListService.list(wrapper);
-        return Result.success(list);
+        if(list.size() >= 1){
+            return Result.success("yes");
+        }
+        return Result.success("no");
     }
     
-    @RequestMapping("/getList")
-    public Result getLendList(Integer readerId,Integer current,Integer size){
-        Result lendInfo = lendListService.getLendInfo(readerId,current,size);
+    @RequestMapping("/getListByState")
+    public Result getLendList(Integer readerId,Integer state,Integer pageIndex,Integer pageSize){
+        Result lendInfo = lendListService.getLendInfo(readerId,state,pageIndex,pageSize);
         return lendInfo;
     }
     
-    @RequestMapping("/add")
+    @RequestMapping("/saveOrUpdate")
     public Result add(@RequestBody LendList lendList){
-        return null;
+        if(null == lendList.getLendDate()){
+            lendList.setLendDate(DateUtil.getStringDateShort());
+        }else if("2".equals(lendList.getState().toString())){
+            lendList.setBackDate(DateUtil.getStringDateShort());
+        }
+        boolean b = lendListService.saveOrUpdate(lendList);
+        if(b){
+            return Result.success();
+        }
+        return Result.fail();
     }
 }

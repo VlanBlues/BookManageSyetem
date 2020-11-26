@@ -47,6 +47,9 @@
             <if test="readerId != null">
                 lend.reader_id = #{readerId}
             </if>
+            <if test="state != null">
+                and lend.state = #{state}
+            </if>
         </where>
     </select>
 </mapper>
