@@ -50,7 +50,12 @@ public class BookInfoServiceImpl extends ServiceImpl<BookInfoMapper, BookInfo> i
         Page<BookInfo> bookInfoPage1 = bookInfoPage.setRecords(bookInfoMapper.getListByReaderId(readerId, bookInfoPage));
         return Result.success(bookInfoPage1);
     }
-    
+
+    @Override
+    public Result getRecommend() {
+        return Result.success(bookInfoMapper.getRecommend());
+    }
+
     @Override
     public Result updateImg(MultipartFile file) {
         String local = "F:/img/book/";

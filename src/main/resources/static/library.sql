@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50721
 File Encoding         : 65001
 
-Date: 2020-11-26 17:29:44
+Date: 2020-11-27 16:23:24
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -24,15 +24,13 @@ CREATE TABLE `book_collection` (
   `book_id` int(20) NOT NULL,
   `reader_id` int(20) NOT NULL,
   PRIMARY KEY (`collection_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of book_collection
 -- ----------------------------
 INSERT INTO `book_collection` VALUES ('20', '3', '10000');
-INSERT INTO `book_collection` VALUES ('34', '3', '10000');
 INSERT INTO `book_collection` VALUES ('36', '2', '10000');
-INSERT INTO `book_collection` VALUES ('37', '1', '10000');
 
 -- ----------------------------
 -- Table structure for book_comment
@@ -138,6 +136,7 @@ CREATE TABLE `lend_list` (
   `book_id` bigint(20) NOT NULL,
   `reader_id` bigint(20) NOT NULL,
   `lend_date` varchar(20) DEFAULT NULL,
+  `approval_date` varchar(20) DEFAULT NULL,
   `back_date` varchar(20) DEFAULT NULL,
   `state` int(2) DEFAULT '0',
   PRIMARY KEY (`lend_id`)
@@ -146,17 +145,17 @@ CREATE TABLE `lend_list` (
 -- ----------------------------
 -- Records of lend_list
 -- ----------------------------
-INSERT INTO `lend_list` VALUES ('1', '1', '10000', '2020-03-15', '2020-06-16', '2');
-INSERT INTO `lend_list` VALUES ('2', '2', '10001', '2020-06-10', '2020-09-02', '2');
-INSERT INTO `lend_list` VALUES ('3', '3', '10003', '2020-06-12', '2020-09-02', '2');
-INSERT INTO `lend_list` VALUES ('4', '4', '10000', '2020-03-15', '2020-09-03', '2');
-INSERT INTO `lend_list` VALUES ('5', '5', '10002', '2020-06-15', null, '0');
-INSERT INTO `lend_list` VALUES ('6', '6', '10000', '2020-06-15', null, '0');
-INSERT INTO `lend_list` VALUES ('7', '1', '10001', '2020-09-02', '2020-09-02', '2');
-INSERT INTO `lend_list` VALUES ('8', '7', '10001', '2020-11-13', '2020-11-20', '0');
-INSERT INTO `lend_list` VALUES ('9', '1', '10000', '2020-11-26', null, '0');
-INSERT INTO `lend_list` VALUES ('10', '2', '10000', '2020-11-26', null, '0');
-INSERT INTO `lend_list` VALUES ('11', '3', '10000', '2020-11-26', null, '0');
+INSERT INTO `lend_list` VALUES ('1', '1', '10000', '2020-03-15', '2020-09-03', '2020-06-16', '2');
+INSERT INTO `lend_list` VALUES ('2', '2', '10001', '2020-06-10', '2020-09-03', '2020-09-02', '2');
+INSERT INTO `lend_list` VALUES ('3', '3', '10003', '2020-06-12', '2020-09-03', '2020-09-02', '2');
+INSERT INTO `lend_list` VALUES ('4', '4', '10000', '2020-03-15', '2020-09-03', '2020-09-03', '2');
+INSERT INTO `lend_list` VALUES ('5', '5', '10002', '2020-06-15', null, null, '0');
+INSERT INTO `lend_list` VALUES ('6', '6', '10000', '2020-06-15', null, null, '0');
+INSERT INTO `lend_list` VALUES ('7', '1', '10001', '2020-09-02', '2020-09-03', '2020-09-02', '2');
+INSERT INTO `lend_list` VALUES ('8', '7', '10001', '2020-11-13', null, '2020-11-20', '0');
+INSERT INTO `lend_list` VALUES ('9', '1', '10000', '2020-11-26', null, null, '0');
+INSERT INTO `lend_list` VALUES ('10', '2', '10000', '2020-11-26', null, null, '0');
+INSERT INTO `lend_list` VALUES ('11', '3', '10000', '2020-11-26', null, null, '0');
 
 -- ----------------------------
 -- Table structure for login_log
@@ -168,7 +167,7 @@ CREATE TABLE `login_log` (
   `ip` varchar(100) DEFAULT NULL,
   `date` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=72 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=74 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of login_log
@@ -244,6 +243,8 @@ INSERT INTO `login_log` VALUES ('68', '10000', '127.0.0.1', '2020-11-26');
 INSERT INTO `login_log` VALUES ('69', '10000', '127.0.0.1', '2020-11-26');
 INSERT INTO `login_log` VALUES ('70', '10000', '127.0.0.1', '2020-11-26');
 INSERT INTO `login_log` VALUES ('71', '10000', '127.0.0.1', '2020-11-26');
+INSERT INTO `login_log` VALUES ('72', '10000', '127.0.0.1', '2020-11-27');
+INSERT INTO `login_log` VALUES ('73', '10000', '127.0.0.1', '2020-11-27');
 
 -- ----------------------------
 -- Table structure for notice

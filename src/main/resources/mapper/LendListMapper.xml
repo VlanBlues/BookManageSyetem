@@ -8,6 +8,7 @@
         <result property="readerId" column="reader_id"></result>
         <result property="lendDate" column="lend_date"></result>
         <result property="backDate" column="back_date"></result>
+        <result property="approvalDate" column="approval_date"></result>
         <association property="readerInfo" javaType="com.book.system.entity.ReaderInfo" resultMap="readerResult"></association>
         <association property="bookInfo" javaType="com.book.system.entity.BookInfo" resultMap="bookInfoResult"></association>
     </resultMap>

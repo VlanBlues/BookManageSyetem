@@ -33,6 +33,8 @@ public class LendList implements Serializable {
     private Long readerId;
 
     private String lendDate;
+    
+    private String approvalDate;
 
     private String backDate;
 

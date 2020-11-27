@@ -74,4 +74,28 @@
                 on a.book_id = c.book_id and c.reader_id = #{readerId}
         order by a.book_id
     </select>
+    <select id="getRecommend" resultType="com.book.system.entity.BookInfo">
+        SELECT
+            *
+        FROM
+            book_info
+        WHERE
+            book_id IN (
+                SELECT
+                    a.book_id
+                FROM
+                    (
+                        SELECT
+                            count(*) num,
+                            book_id
+                        FROM
+                            lend_list
+                        GROUP BY
+                            book_id
+                        ORDER BY
+                            num DESC
+                        LIMIT 0,6
+                    ) a
+            )
+    </select>
 </mapper>

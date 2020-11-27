@@ -85,4 +85,9 @@ public class BookInfoController {
         System.out.println("update");
         return bookInfoService.updateImg(file);
     }
+    
+    @RequestMapping("/recommend")
+    public Result getRecommend(){
+        return bookInfoService.getRecommend();
+    }
 }

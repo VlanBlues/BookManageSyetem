@@ -23,4 +23,6 @@ public interface BookInfoMapper extends BaseMapper<BookInfo> {
     List<BookInfo> getListByReaderId(@Param("readerId") String readerId,Page<BookInfo> page);
 
     int updateBookImg(@Param("bookImg") String bookImg,@Param("bookId") Integer bookId);
+    
+    List<BookInfo> getRecommend();
 }
