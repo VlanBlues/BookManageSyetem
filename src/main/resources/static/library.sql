@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50721
 File Encoding         : 65001
 
-Date: 2020-11-27 16:23:24
+Date: 2020-11-30 17:07:39
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -24,7 +24,7 @@ CREATE TABLE `book_collection` (
   `book_id` int(20) NOT NULL,
   `reader_id` int(20) NOT NULL,
   PRIMARY KEY (`collection_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of book_collection
@@ -149,13 +149,9 @@ INSERT INTO `lend_list` VALUES ('1', '1', '10000', '2020-03-15', '2020-09-03', '
 INSERT INTO `lend_list` VALUES ('2', '2', '10001', '2020-06-10', '2020-09-03', '2020-09-02', '2');
 INSERT INTO `lend_list` VALUES ('3', '3', '10003', '2020-06-12', '2020-09-03', '2020-09-02', '2');
 INSERT INTO `lend_list` VALUES ('4', '4', '10000', '2020-03-15', '2020-09-03', '2020-09-03', '2');
-INSERT INTO `lend_list` VALUES ('5', '5', '10002', '2020-06-15', null, null, '0');
-INSERT INTO `lend_list` VALUES ('6', '6', '10000', '2020-06-15', null, null, '0');
+INSERT INTO `lend_list` VALUES ('5', '5', '10002', '2020-11-30', '', null, '0');
+INSERT INTO `lend_list` VALUES ('6', '6', '10000', '2020-11-30', '2020-11-30', '', '1');
 INSERT INTO `lend_list` VALUES ('7', '1', '10001', '2020-09-02', '2020-09-03', '2020-09-02', '2');
-INSERT INTO `lend_list` VALUES ('8', '7', '10001', '2020-11-13', null, '2020-11-20', '0');
-INSERT INTO `lend_list` VALUES ('9', '1', '10000', '2020-11-26', null, null, '0');
-INSERT INTO `lend_list` VALUES ('10', '2', '10000', '2020-11-26', null, null, '0');
-INSERT INTO `lend_list` VALUES ('11', '3', '10000', '2020-11-26', null, null, '0');
 
 -- ----------------------------
 -- Table structure for login_log
@@ -167,7 +163,7 @@ CREATE TABLE `login_log` (
   `ip` varchar(100) DEFAULT NULL,
   `date` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=74 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=117 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of login_log
@@ -245,6 +241,49 @@ INSERT INTO `login_log` VALUES ('70', '10000', '127.0.0.1', '2020-11-26');
 INSERT INTO `login_log` VALUES ('71', '10000', '127.0.0.1', '2020-11-26');
 INSERT INTO `login_log` VALUES ('72', '10000', '127.0.0.1', '2020-11-27');
 INSERT INTO `login_log` VALUES ('73', '10000', '127.0.0.1', '2020-11-27');
+INSERT INTO `login_log` VALUES ('74', '10000', '127.0.0.1', '2020-11-30');
+INSERT INTO `login_log` VALUES ('75', '10000', '127.0.0.1', '2020-11-30');
+INSERT INTO `login_log` VALUES ('76', '10000', '127.0.0.1', '2020-11-30');
+INSERT INTO `login_log` VALUES ('77', '10000', '127.0.0.1', '2020-11-30');
+INSERT INTO `login_log` VALUES ('78', '10000', '127.0.0.1', '2020-11-30');
+INSERT INTO `login_log` VALUES ('79', '10000', '127.0.0.1', '2020-11-30');
+INSERT INTO `login_log` VALUES ('80', '10000', '127.0.0.1', '2020-11-30');
+INSERT INTO `login_log` VALUES ('81', '10000', '127.0.0.1', '2020-11-30');
+INSERT INTO `login_log` VALUES ('82', '10000', '127.0.0.1', '2020-11-30');
+INSERT INTO `login_log` VALUES ('83', '10000', '127.0.0.1', '2020-11-30');
+INSERT INTO `login_log` VALUES ('84', '10000', '127.0.0.1', '2020-11-30');
+INSERT INTO `login_log` VALUES ('85', '10000', '127.0.0.1', '2020-11-30');
+INSERT INTO `login_log` VALUES ('86', '10000', '127.0.0.1', '2020-11-30');
+INSERT INTO `login_log` VALUES ('87', '10000', '127.0.0.1', '2020-11-30');
+INSERT INTO `login_log` VALUES ('88', '10000', '127.0.0.1', '2020-11-30');
+INSERT INTO `login_log` VALUES ('89', '10000', '127.0.0.1', '2020-11-30');
+INSERT INTO `login_log` VALUES ('90', '10000', '127.0.0.1', '2020-11-30');
+INSERT INTO `login_log` VALUES ('91', '10000', '127.0.0.1', '2020-11-30');
+INSERT INTO `login_log` VALUES ('92', '10000', '127.0.0.1', '2020-11-30');
+INSERT INTO `login_log` VALUES ('93', '10000', '127.0.0.1', '2020-11-30');
+INSERT INTO `login_log` VALUES ('94', '10000', '127.0.0.1', '2020-11-30');
+INSERT INTO `login_log` VALUES ('95', '10000', '127.0.0.1', '2020-11-30');
+INSERT INTO `login_log` VALUES ('96', '10000', '127.0.0.1', '2020-11-30');
+INSERT INTO `login_log` VALUES ('97', '10000', '127.0.0.1', '2020-11-30');
+INSERT INTO `login_log` VALUES ('98', '10000', '127.0.0.1', '2020-11-30');
+INSERT INTO `login_log` VALUES ('99', '10000', '127.0.0.1', '2020-11-30');
+INSERT INTO `login_log` VALUES ('100', '10000', '127.0.0.1', '2020-11-30');
+INSERT INTO `login_log` VALUES ('101', '10000', '127.0.0.1', '2020-11-30');
+INSERT INTO `login_log` VALUES ('102', '10000', '127.0.0.1', '2020-11-30');
+INSERT INTO `login_log` VALUES ('103', '10000', '127.0.0.1', '2020-11-30');
+INSERT INTO `login_log` VALUES ('104', '10000', '127.0.0.1', '2020-11-30');
+INSERT INTO `login_log` VALUES ('105', '10000', '127.0.0.1', '2020-11-30');
+INSERT INTO `login_log` VALUES ('106', '10000', '127.0.0.1', '2020-11-30');
+INSERT INTO `login_log` VALUES ('107', '10000', '127.0.0.1', '2020-11-30');
+INSERT INTO `login_log` VALUES ('108', '10000', '127.0.0.1', '2020-11-30');
+INSERT INTO `login_log` VALUES ('109', '10000', '127.0.0.1', '2020-11-30');
+INSERT INTO `login_log` VALUES ('110', '10000', '127.0.0.1', '2020-11-30');
+INSERT INTO `login_log` VALUES ('111', '10000', '127.0.0.1', '2020-11-30');
+INSERT INTO `login_log` VALUES ('112', '10000', '127.0.0.1', '2020-11-30');
+INSERT INTO `login_log` VALUES ('113', '10000', '127.0.0.1', '2020-11-30');
+INSERT INTO `login_log` VALUES ('114', '10000', '127.0.0.1', '2020-11-30');
+INSERT INTO `login_log` VALUES ('115', '10000', '127.0.0.1', '2020-11-30');
+INSERT INTO `login_log` VALUES ('116', '10000', '127.0.0.1', '2020-11-30');
 
 -- ----------------------------
 -- Table structure for notice

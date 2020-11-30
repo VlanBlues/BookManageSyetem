@@ -59,6 +59,8 @@ public class LendListController {
     public Result add(@RequestBody LendList lendList){
         if(null == lendList.getLendDate()){
             lendList.setLendDate(DateUtil.getStringDateShort());
+        }else if("1".equals(lendList.getState().toString())){
+            lendList.setApprovalDate(DateUtil.getStringDateShort());
         }else if("2".equals(lendList.getState().toString())){
             lendList.setBackDate(DateUtil.getStringDateShort());
         }
