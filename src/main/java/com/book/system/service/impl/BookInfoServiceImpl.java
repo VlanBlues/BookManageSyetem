@@ -7,6 +7,7 @@ import com.book.system.service.IBookInfoService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.book.system.util.RandomUtil;
 import com.book.system.util.Result;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -31,6 +32,9 @@ public class BookInfoServiceImpl extends ServiceImpl<BookInfoMapper, BookInfo> i
 
     @Resource
     private BookInfoMapper bookInfoMapper;
+
+    @Value("${imgLocal.book}")
+    private String local;
     
     @Override
     public List<BookInfo> getBookByClassOrSearchContent(String classId, String content) {
@@ -58,7 +62,6 @@ public class BookInfoServiceImpl extends ServiceImpl<BookInfoMapper, BookInfo> i
 
     @Override
     public Result updateImg(MultipartFile file) {
-        String local = "F:/img/book/";
         //String local = "F:/img/test/";
         String fileName = file.getOriginalFilename();
         String fileType = "." + fileName.substring(fileName.lastIndexOf(".") + 1);

@@ -81,6 +81,14 @@ public class ReaderInfoController {
         return readerInfoService.updateImg(file,readerId);
     }
 
+    @RequestMapping("/getByReaderId")
+    public Result getByReaderId(@RequestBody ReaderInfo readerInfo){
+        QueryWrapper queryWrapper = new QueryWrapper();
+        queryWrapper.eq("reader_id",readerInfo.getReaderId());
+        ReaderInfo info = readerInfoService.getOne(queryWrapper);
+        return Result.success(info);
+    }
+    
     @RequestMapping("/getList")
     public Result getReaderList(Integer pageIndex,Integer pageSize,String name){
         IPage<ReaderInfo> readerInfoIPage = new Page<>(pageIndex,pageSize);
