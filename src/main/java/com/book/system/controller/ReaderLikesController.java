@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
+
 /**
  * <p>
  *  前端控制器
@@ -18,9 +20,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/book/likes")
 public class ReaderLikesController {
+    @Resource
     private IReaderLikesService readerLikesService;
+    
     @RequestMapping("/getByReaderId")
-    public Result ClassName(String readerId){
+    public Result getByReaderId(String readerId){
         readerLikesService.list();
         return null;
     }

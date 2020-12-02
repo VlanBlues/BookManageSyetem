@@ -7,6 +7,8 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import javax.print.DocFlavor;
+
 /**
  * <p>
  * 
@@ -23,6 +25,8 @@ public class LoginLog implements Serializable {
 
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
+    
+    private String username;
     
     private Integer readerId;
 

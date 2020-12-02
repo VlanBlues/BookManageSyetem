@@ -2,6 +2,7 @@ package com.book.system.controller;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.book.system.entity.LendList;
@@ -52,7 +53,7 @@ public class ReaderInfoController {
             return Result.fail("用户名密码错误！");
         }
         LoginLog loginLog = new LoginLog();
-        loginLog.setDate(DateUtil.getStringDateShort());
+        loginLog.setDate(DateUtil.getStringDate());
         loginLog.setIp(IpUtil.getIpAddr(request));
         loginLog.setReaderId(readerByUsername.getReaderId());
         loginLogService.save(loginLog);
@@ -125,5 +126,24 @@ public class ReaderInfoController {
             return Result.success();
         }
         return Result.fail();
+    }
+    @RequestMapping("/changePass")
+    public Result changePass(String readerId,String oldPass,String newPass){
+        QueryWrapper wrapper = new QueryWrapper();
+        wrapper.eq("reader_id",readerId);
+        wrapper.eq("password",oldPass);
+        int count = readerInfoService.count(wrapper);
+        if(count == 0){
+            return Result.fail("原密码错误！");
+        }else {
+            UpdateWrapper<ReaderInfo> updateWrapper = new UpdateWrapper<>();
+            updateWrapper.set("password",newPass);
+            updateWrapper.eq("reader_id",readerId);
+            boolean b = readerInfoService.update(updateWrapper);
+            if(b){
+                return Result.success("密码修改成功！");
+            }
+        }
+        return null;
     }
 }

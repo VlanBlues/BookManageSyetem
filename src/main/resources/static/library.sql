@@ -10,10 +10,26 @@ Target Server Type    : MYSQL
 Target Server Version : 50721
 File Encoding         : 65001
 
-Date: 2020-11-30 17:07:39
+Date: 2020-12-02 17:18:06
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for admin
+-- ----------------------------
+DROP TABLE IF EXISTS `admin`;
+CREATE TABLE `admin` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(100) DEFAULT NULL,
+  `password` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------
+-- Records of admin
+-- ----------------------------
+INSERT INTO `admin` VALUES ('1', 'admin', '123456');
 
 -- ----------------------------
 -- Table structure for book_collection
@@ -24,13 +40,14 @@ CREATE TABLE `book_collection` (
   `book_id` int(20) NOT NULL,
   `reader_id` int(20) NOT NULL,
   PRIMARY KEY (`collection_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of book_collection
 -- ----------------------------
-INSERT INTO `book_collection` VALUES ('20', '3', '10000');
-INSERT INTO `book_collection` VALUES ('36', '2', '10000');
+INSERT INTO `book_collection` VALUES ('42', '1', '10000');
+INSERT INTO `book_collection` VALUES ('43', '2', '10000');
+INSERT INTO `book_collection` VALUES ('44', '3', '10000');
 
 -- ----------------------------
 -- Table structure for book_comment
@@ -160,130 +177,18 @@ DROP TABLE IF EXISTS `login_log`;
 CREATE TABLE `login_log` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `reader_id` int(11) DEFAULT NULL,
+  `username` varchar(100) DEFAULT NULL,
   `ip` varchar(100) DEFAULT NULL,
   `date` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=117 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=139 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of login_log
 -- ----------------------------
-INSERT INTO `login_log` VALUES ('1', '10009', '127.0.0.1', '2020-11-10');
-INSERT INTO `login_log` VALUES ('2', '10000', '127.0.0.1', '2020-11-23');
-INSERT INTO `login_log` VALUES ('3', '10000', '127.0.0.1', '2020-11-23');
-INSERT INTO `login_log` VALUES ('4', '10000', '127.0.0.1', '2020-11-23');
-INSERT INTO `login_log` VALUES ('5', '10000', '127.0.0.1', '2020-11-23');
-INSERT INTO `login_log` VALUES ('6', '10000', '127.0.0.1', '2020-11-23');
-INSERT INTO `login_log` VALUES ('7', '10000', '127.0.0.1', '2020-11-23');
-INSERT INTO `login_log` VALUES ('8', '10000', '127.0.0.1', '2020-11-23');
-INSERT INTO `login_log` VALUES ('9', '10000', '127.0.0.1', '2020-11-23');
-INSERT INTO `login_log` VALUES ('10', '10000', '127.0.0.1', '2020-11-23');
-INSERT INTO `login_log` VALUES ('11', '10000', '127.0.0.1', '2020-11-23');
-INSERT INTO `login_log` VALUES ('12', '10000', '127.0.0.1', '2020-11-24');
-INSERT INTO `login_log` VALUES ('13', '10000', '127.0.0.1', '2020-11-24');
-INSERT INTO `login_log` VALUES ('14', '10000', '127.0.0.1', '2020-11-24');
-INSERT INTO `login_log` VALUES ('15', '10000', '127.0.0.1', '2020-11-24');
-INSERT INTO `login_log` VALUES ('16', '10000', '127.0.0.1', '2020-11-24');
-INSERT INTO `login_log` VALUES ('17', '10000', '127.0.0.1', '2020-11-24');
-INSERT INTO `login_log` VALUES ('18', '10000', '127.0.0.1', '2020-11-24');
-INSERT INTO `login_log` VALUES ('19', '10000', '127.0.0.1', '2020-11-25');
-INSERT INTO `login_log` VALUES ('20', '10000', '127.0.0.1', '2020-11-25');
-INSERT INTO `login_log` VALUES ('21', '10000', '127.0.0.1', '2020-11-26');
-INSERT INTO `login_log` VALUES ('22', '10000', '127.0.0.1', '2020-11-26');
-INSERT INTO `login_log` VALUES ('23', '10000', '127.0.0.1', '2020-11-26');
-INSERT INTO `login_log` VALUES ('24', '10000', '127.0.0.1', '2020-11-26');
-INSERT INTO `login_log` VALUES ('25', '10000', '127.0.0.1', '2020-11-26');
-INSERT INTO `login_log` VALUES ('26', '10000', '127.0.0.1', '2020-11-26');
-INSERT INTO `login_log` VALUES ('27', '10000', '127.0.0.1', '2020-11-26');
-INSERT INTO `login_log` VALUES ('28', '10000', '127.0.0.1', '2020-11-26');
-INSERT INTO `login_log` VALUES ('29', '10000', '127.0.0.1', '2020-11-26');
-INSERT INTO `login_log` VALUES ('30', '10000', '127.0.0.1', '2020-11-26');
-INSERT INTO `login_log` VALUES ('31', '10000', '127.0.0.1', '2020-11-26');
-INSERT INTO `login_log` VALUES ('32', '10000', '127.0.0.1', '2020-11-26');
-INSERT INTO `login_log` VALUES ('33', '10000', '127.0.0.1', '2020-11-26');
-INSERT INTO `login_log` VALUES ('34', '10000', '127.0.0.1', '2020-11-26');
-INSERT INTO `login_log` VALUES ('35', '10000', '127.0.0.1', '2020-11-26');
-INSERT INTO `login_log` VALUES ('36', '10000', '127.0.0.1', '2020-11-26');
-INSERT INTO `login_log` VALUES ('37', '10000', '127.0.0.1', '2020-11-26');
-INSERT INTO `login_log` VALUES ('38', '10000', '127.0.0.1', '2020-11-26');
-INSERT INTO `login_log` VALUES ('39', '10000', '127.0.0.1', '2020-11-26');
-INSERT INTO `login_log` VALUES ('40', '10000', '127.0.0.1', '2020-11-26');
-INSERT INTO `login_log` VALUES ('41', '10000', '127.0.0.1', '2020-11-26');
-INSERT INTO `login_log` VALUES ('42', '10000', '127.0.0.1', '2020-11-26');
-INSERT INTO `login_log` VALUES ('43', '10000', '127.0.0.1', '2020-11-26');
-INSERT INTO `login_log` VALUES ('44', '10000', '127.0.0.1', '2020-11-26');
-INSERT INTO `login_log` VALUES ('45', '10000', '127.0.0.1', '2020-11-26');
-INSERT INTO `login_log` VALUES ('46', '10000', '127.0.0.1', '2020-11-26');
-INSERT INTO `login_log` VALUES ('47', '10000', '127.0.0.1', '2020-11-26');
-INSERT INTO `login_log` VALUES ('48', '10000', '127.0.0.1', '2020-11-26');
-INSERT INTO `login_log` VALUES ('49', '10000', '127.0.0.1', '2020-11-26');
-INSERT INTO `login_log` VALUES ('50', '10000', '127.0.0.1', '2020-11-26');
-INSERT INTO `login_log` VALUES ('51', '10000', '127.0.0.1', '2020-11-26');
-INSERT INTO `login_log` VALUES ('52', '10000', '127.0.0.1', '2020-11-26');
-INSERT INTO `login_log` VALUES ('53', '10000', '127.0.0.1', '2020-11-26');
-INSERT INTO `login_log` VALUES ('54', '10000', '127.0.0.1', '2020-11-26');
-INSERT INTO `login_log` VALUES ('55', '10000', '127.0.0.1', '2020-11-26');
-INSERT INTO `login_log` VALUES ('56', '10000', '127.0.0.1', '2020-11-26');
-INSERT INTO `login_log` VALUES ('57', '10000', '127.0.0.1', '2020-11-26');
-INSERT INTO `login_log` VALUES ('58', '10000', '127.0.0.1', '2020-11-26');
-INSERT INTO `login_log` VALUES ('59', '10000', '127.0.0.1', '2020-11-26');
-INSERT INTO `login_log` VALUES ('60', '10000', '127.0.0.1', '2020-11-26');
-INSERT INTO `login_log` VALUES ('61', '10000', '127.0.0.1', '2020-11-26');
-INSERT INTO `login_log` VALUES ('62', '10000', '127.0.0.1', '2020-11-26');
-INSERT INTO `login_log` VALUES ('63', '10000', '127.0.0.1', '2020-11-26');
-INSERT INTO `login_log` VALUES ('64', '10000', '127.0.0.1', '2020-11-26');
-INSERT INTO `login_log` VALUES ('65', '10000', '127.0.0.1', '2020-11-26');
-INSERT INTO `login_log` VALUES ('66', '10000', '127.0.0.1', '2020-11-26');
-INSERT INTO `login_log` VALUES ('67', '10000', '127.0.0.1', '2020-11-26');
-INSERT INTO `login_log` VALUES ('68', '10000', '127.0.0.1', '2020-11-26');
-INSERT INTO `login_log` VALUES ('69', '10000', '127.0.0.1', '2020-11-26');
-INSERT INTO `login_log` VALUES ('70', '10000', '127.0.0.1', '2020-11-26');
-INSERT INTO `login_log` VALUES ('71', '10000', '127.0.0.1', '2020-11-26');
-INSERT INTO `login_log` VALUES ('72', '10000', '127.0.0.1', '2020-11-27');
-INSERT INTO `login_log` VALUES ('73', '10000', '127.0.0.1', '2020-11-27');
-INSERT INTO `login_log` VALUES ('74', '10000', '127.0.0.1', '2020-11-30');
-INSERT INTO `login_log` VALUES ('75', '10000', '127.0.0.1', '2020-11-30');
-INSERT INTO `login_log` VALUES ('76', '10000', '127.0.0.1', '2020-11-30');
-INSERT INTO `login_log` VALUES ('77', '10000', '127.0.0.1', '2020-11-30');
-INSERT INTO `login_log` VALUES ('78', '10000', '127.0.0.1', '2020-11-30');
-INSERT INTO `login_log` VALUES ('79', '10000', '127.0.0.1', '2020-11-30');
-INSERT INTO `login_log` VALUES ('80', '10000', '127.0.0.1', '2020-11-30');
-INSERT INTO `login_log` VALUES ('81', '10000', '127.0.0.1', '2020-11-30');
-INSERT INTO `login_log` VALUES ('82', '10000', '127.0.0.1', '2020-11-30');
-INSERT INTO `login_log` VALUES ('83', '10000', '127.0.0.1', '2020-11-30');
-INSERT INTO `login_log` VALUES ('84', '10000', '127.0.0.1', '2020-11-30');
-INSERT INTO `login_log` VALUES ('85', '10000', '127.0.0.1', '2020-11-30');
-INSERT INTO `login_log` VALUES ('86', '10000', '127.0.0.1', '2020-11-30');
-INSERT INTO `login_log` VALUES ('87', '10000', '127.0.0.1', '2020-11-30');
-INSERT INTO `login_log` VALUES ('88', '10000', '127.0.0.1', '2020-11-30');
-INSERT INTO `login_log` VALUES ('89', '10000', '127.0.0.1', '2020-11-30');
-INSERT INTO `login_log` VALUES ('90', '10000', '127.0.0.1', '2020-11-30');
-INSERT INTO `login_log` VALUES ('91', '10000', '127.0.0.1', '2020-11-30');
-INSERT INTO `login_log` VALUES ('92', '10000', '127.0.0.1', '2020-11-30');
-INSERT INTO `login_log` VALUES ('93', '10000', '127.0.0.1', '2020-11-30');
-INSERT INTO `login_log` VALUES ('94', '10000', '127.0.0.1', '2020-11-30');
-INSERT INTO `login_log` VALUES ('95', '10000', '127.0.0.1', '2020-11-30');
-INSERT INTO `login_log` VALUES ('96', '10000', '127.0.0.1', '2020-11-30');
-INSERT INTO `login_log` VALUES ('97', '10000', '127.0.0.1', '2020-11-30');
-INSERT INTO `login_log` VALUES ('98', '10000', '127.0.0.1', '2020-11-30');
-INSERT INTO `login_log` VALUES ('99', '10000', '127.0.0.1', '2020-11-30');
-INSERT INTO `login_log` VALUES ('100', '10000', '127.0.0.1', '2020-11-30');
-INSERT INTO `login_log` VALUES ('101', '10000', '127.0.0.1', '2020-11-30');
-INSERT INTO `login_log` VALUES ('102', '10000', '127.0.0.1', '2020-11-30');
-INSERT INTO `login_log` VALUES ('103', '10000', '127.0.0.1', '2020-11-30');
-INSERT INTO `login_log` VALUES ('104', '10000', '127.0.0.1', '2020-11-30');
-INSERT INTO `login_log` VALUES ('105', '10000', '127.0.0.1', '2020-11-30');
-INSERT INTO `login_log` VALUES ('106', '10000', '127.0.0.1', '2020-11-30');
-INSERT INTO `login_log` VALUES ('107', '10000', '127.0.0.1', '2020-11-30');
-INSERT INTO `login_log` VALUES ('108', '10000', '127.0.0.1', '2020-11-30');
-INSERT INTO `login_log` VALUES ('109', '10000', '127.0.0.1', '2020-11-30');
-INSERT INTO `login_log` VALUES ('110', '10000', '127.0.0.1', '2020-11-30');
-INSERT INTO `login_log` VALUES ('111', '10000', '127.0.0.1', '2020-11-30');
-INSERT INTO `login_log` VALUES ('112', '10000', '127.0.0.1', '2020-11-30');
-INSERT INTO `login_log` VALUES ('113', '10000', '127.0.0.1', '2020-11-30');
-INSERT INTO `login_log` VALUES ('114', '10000', '127.0.0.1', '2020-11-30');
-INSERT INTO `login_log` VALUES ('115', '10000', '127.0.0.1', '2020-11-30');
-INSERT INTO `login_log` VALUES ('116', '10000', '127.0.0.1', '2020-11-30');
+INSERT INTO `login_log` VALUES ('136', '10000', 'zhanghua', '127.0.0.1', '2020-12-02 16:49:55');
+INSERT INTO `login_log` VALUES ('137', '10000', 'zhanghua', '127.0.0.1', '2020-12-02 16:51:00');
+INSERT INTO `login_log` VALUES ('138', '10000', 'zhanghua', '127.0.0.1', '2020-12-02 16:51:56');
 
 -- ----------------------------
 -- Table structure for notice
@@ -301,16 +206,16 @@ CREATE TABLE `notice` (
 -- ----------------------------
 -- Records of notice
 -- ----------------------------
-INSERT INTO `notice` VALUES ('1', '发给对方', '2020-04-19 21:00:00', '2020-11-09 14:42:06', '0');
-INSERT INTO `notice` VALUES ('2', '今晚12点整发大红包，先到先得', '2020-04-19 21:00:00', null, '0');
-INSERT INTO `notice` VALUES ('3', '【系统通知】该系统将于今晚凌晨2点到5点进行升级维护', '2020-04-19 21:00:00', null, '0');
-INSERT INTO `notice` VALUES ('5', '去玩', '2020-11-09 10:43:17', null, '-1');
-INSERT INTO `notice` VALUES ('6', '温热时', '2020-11-09 10:44:37', '2020-11-10 09:28:42', '1');
-INSERT INTO `notice` VALUES ('7', '环境了好久', '2020-11-09 10:46:51', null, '0');
-INSERT INTO `notice` VALUES ('8', 'ghjghj', '2020-11-09 10:46:59', '2020-11-09 14:43:15', '0');
-INSERT INTO `notice` VALUES ('9', '规划局规划', '2020-11-09 10:47:03', '2020-11-09 14:57:59', '0');
-INSERT INTO `notice` VALUES ('11', '很棒棒没那么', '2020-11-09 10:47:18', '2020-11-09 15:00:23', '1');
-INSERT INTO `notice` VALUES ('13', '托尔斯泰', '2020-11-09 14:33:11', '2020-11-09 14:42:24', '-1');
+INSERT INTO `notice` VALUES ('1', '【系统通知】该系统将于今晚凌晨2点到5点进行升级维护1', '2020-04-19 21:00:00', '2020-12-02 16:25:26', '1');
+INSERT INTO `notice` VALUES ('2', '【系统通知】该系统将于今晚凌晨2点到5点进行升级维护2', '2020-04-19 21:00:00', null, '0');
+INSERT INTO `notice` VALUES ('3', '【系统通知】该系统将于今晚凌晨2点到5点进行升级维护3', '2020-04-19 21:00:00', null, '0');
+INSERT INTO `notice` VALUES ('5', '【系统通知】该系统将于今晚凌晨2点到5点进行升级维护4', '2020-11-09 10:43:17', null, '-1');
+INSERT INTO `notice` VALUES ('6', '【系统通知】该系统将于今晚凌晨2点到5点进行升级维护5', '2020-11-09 10:44:37', '2020-11-10 09:28:42', '1');
+INSERT INTO `notice` VALUES ('7', '【系统通知】该系统将于今晚凌晨2点到5点进行升级维护6', '2020-11-09 10:46:51', null, '0');
+INSERT INTO `notice` VALUES ('8', '【系统通知】该系统将于今晚凌晨2点到5点进行升级维护7', '2020-11-09 10:46:59', '2020-11-09 14:43:15', '0');
+INSERT INTO `notice` VALUES ('9', '【系统通知】该系统将于今晚凌晨2点到5点进行升级维护8', '2020-11-09 10:47:03', '2020-11-09 14:57:59', '0');
+INSERT INTO `notice` VALUES ('11', '【系统通知】该系统将于今晚凌晨2点到5点进行升级维护9', '2020-11-09 10:47:18', '2020-11-09 15:00:23', '1');
+INSERT INTO `notice` VALUES ('13', '【系统通知】该系统将于今晚凌晨2点到5点进行升级维护10', '2020-11-09 14:33:11', '2020-11-09 14:42:24', '-1');
 
 -- ----------------------------
 -- Table structure for reader_info
@@ -332,20 +237,20 @@ CREATE TABLE `reader_info` (
 -- ----------------------------
 -- Records of reader_info
 -- ----------------------------
-INSERT INTO `reader_info` VALUES ('10000', '张华', 'zhanghua', '123456', '男', '1995-06-10', '12345678900', 'http://localhost:8081/img/mouse.jpg', '');
-INSERT INTO `reader_info` VALUES ('10001', '王小伟', 'wangxiaowei', '123456', '男', '1996-02-01', '12345678909', 'http://localhost:8081/img/mouse.jpg', '');
-INSERT INTO `reader_info` VALUES ('10002', '王莞尔', 'wagwaner', '789456', '女', '1995-04-15', '12345678908', 'http://localhost:8081/img/mouse.jpg', '');
-INSERT INTO `reader_info` VALUES ('10003', '张明华', 'zhangminghua', '456456', '男', '1996-08-29', '12345678907', 'http://localhost:8081/img/mouse.jpg', '');
-INSERT INTO `reader_info` VALUES ('10004', '李一琛', 'liyuchen', '789512', '男', '1996-01-01', '15123659875', 'http://localhost:8081/img/mouse.jpg', '');
+INSERT INTO `reader_info` VALUES ('10000', '张华', 'zhanghua', '123456', '男', '1995-06-27', '12345678900', 'http://localhost:8081/u/img/6838183612.png', '2020-11-23');
+INSERT INTO `reader_info` VALUES ('10001', '王小伟', 'wangxiaowei', '123456', '男', '1996-02-01', '12345678909', 'http://localhost:8081/img/mouse.jpg', '2020-11-23');
+INSERT INTO `reader_info` VALUES ('10002', '王莞尔', 'wagwaner', '789456', '女', '1995-04-15', '12345678908', 'http://localhost:8081/img/mouse.jpg', '2020-11-23');
+INSERT INTO `reader_info` VALUES ('10003', '张明华', 'zhangminghua', '456456', '男', '1996-08-29', '12345678907', 'http://localhost:8081/img/mouse.jpg', '2020-11-23');
+INSERT INTO `reader_info` VALUES ('10004', '李一琛', 'liyuchen', '789512', '男', '1996-01-01', '15123659875', 'http://localhost:8081/img/mouse.jpg', '2020-11-23');
 INSERT INTO `reader_info` VALUES ('10006', '胜多负少', '沃尔沃二', 'sdsdfsdf', '男', '2020-11-18', '12315351311', 'http://localhost:8081/img/mouse.jpg', '1998-05-28');
-INSERT INTO `reader_info` VALUES ('10009', '张伟', 'lan', '123456', '男', '2020-10-08', '123456', 'http://localhost:8081/img/mouse.jpg', null);
-INSERT INTO `reader_info` VALUES ('10010', '99', 'lans', '99', '女', '2020-11-24', '99', 'http://localhost:8081/img/mouse.jpg', null);
-INSERT INTO `reader_info` VALUES ('10012', '胜多负少挂号费改', 'erect', 'sdvxxd', '男', '2020-11-24', '废话废话', 'http://localhost:8081/img/mouse.jpg', null);
-INSERT INTO `reader_info` VALUES ('10013', '发放给回复', '一样一样', 'jjjjjj', '男', '2020-11-19', '123456789', 'http://localhost:8081/img/mouse.jpg', '2020-11-10');
-INSERT INTO `reader_info` VALUES ('10014', '456', '123123', '456456', '男', '2020-11-10', '456789456', 'http://localhost:8081/img/mouse.jpg', '2020-11-23');
-INSERT INTO `reader_info` VALUES ('10017', '456', '456', '456', '女', '2020-11-10', '456', 'http://localhost:8081/img/mouse.jpg', '2020-11-23');
-INSERT INTO `reader_info` VALUES ('10018', '1123', '123', '123', '男', '2020-11-25', '123', 'http://localhost:8081/img/mouse.jpg', '2020-11-23');
-INSERT INTO `reader_info` VALUES ('10020', '123', '1234', '123', '女', '2020-11-11', '123', 'http://localhost:8081/img/mouse.jpg', '2020-11-23');
+INSERT INTO `reader_info` VALUES ('10009', '张伟', 'lan', '123456', '男', '2020-10-08', '12315351311', 'http://localhost:8081/img/mouse.jpg', '2020-11-23');
+INSERT INTO `reader_info` VALUES ('10010', '99', 'lans', '99', '女', '2020-11-24', '12315351311', 'http://localhost:8081/img/mouse.jpg', '2020-11-23');
+INSERT INTO `reader_info` VALUES ('10012', '胜多负少挂号费改', 'erect', 'sdvxxd', '男', '2020-11-24', '12315351311', 'http://localhost:8081/img/mouse.jpg', '2020-11-23');
+INSERT INTO `reader_info` VALUES ('10013', '发放给回复', '一样一样', 'jjjjjj', '男', '2020-11-19', '12315351311', 'http://localhost:8081/img/mouse.jpg', '2020-11-10');
+INSERT INTO `reader_info` VALUES ('10014', '456', '123123', '456456', '男', '2020-11-10', '12315351311', 'http://localhost:8081/img/mouse.jpg', '2020-11-23');
+INSERT INTO `reader_info` VALUES ('10017', '456', '456', '456', '女', '2020-11-10', '12315351311', 'http://localhost:8081/img/mouse.jpg', '2020-11-23');
+INSERT INTO `reader_info` VALUES ('10018', '1123', '123', '123', '男', '2020-11-25', '12315351311', 'http://localhost:8081/img/mouse.jpg', '2020-11-23');
+INSERT INTO `reader_info` VALUES ('10020', '123', '1234', '123', '女', '2020-11-11', '12315351311', 'http://localhost:8081/img/mouse.jpg', '2020-11-23');
 
 -- ----------------------------
 -- Table structure for reader_likes
