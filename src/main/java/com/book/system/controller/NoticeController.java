@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.Date;
 
 /**
  * <p>
@@ -60,5 +61,25 @@ public class NoticeController {
             return Result.success();
         }
         return Result.fail();
+    }
+
+    @RequestMapping("/getByReaderIdAndState")
+    public Result getByReaderIdAndState(String readerId,Integer state,Integer pageIndex,Integer pageSize){
+        return noticeService.getByReaderIdAndState(readerId,state,pageIndex,pageSize);
+    }
+    
+    @RequestMapping("/getNewNotice")
+    public Result getNewNotice(){
+        QueryWrapper<Notice> wrapper = new QueryWrapper<>();
+        wrapper.orderByDesc("published_date").last("limit 1");
+        Notice notice = noticeService.getOne(wrapper);
+
+        Date date = DateUtil.strToDateLong(DateUtil.getNextDay(DateUtil.getStringDate(), "1"));
+        if(DateUtil.strToDateLong(notice.getPublishedDate()).after(date)){
+            System.out.println(111);
+        }else{
+            System.out.println(222);
+        }
+        return Result.success();
     }
 }

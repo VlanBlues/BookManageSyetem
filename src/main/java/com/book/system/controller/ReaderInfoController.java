@@ -56,6 +56,7 @@ public class ReaderInfoController {
         loginLog.setDate(DateUtil.getStringDate());
         loginLog.setIp(IpUtil.getIpAddr(request));
         loginLog.setReaderId(readerByUsername.getReaderId());
+        loginLog.setUsername(readerByUsername.getUsername());
         loginLogService.save(loginLog);
         return Result.success(readerByUsername);
     }

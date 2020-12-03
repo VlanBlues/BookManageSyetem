@@ -1,6 +1,8 @@
 package com.book.system.util;
 
 import com.book.system.entity.BookInfo;
+import com.book.system.entity.Notice;
+import com.book.system.entity.ReaderNotice;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -12,13 +14,16 @@ public class MybatisUtil {
     public static String getResultMap(Class<?> cls) throws Exception {
         String str = "";
         // 头部 <resultMap id="BaseResultMap" type="com.huajie.entity.sys.SysMenuinfo">
-        str = "<resultMap id=" + cls.getSimpleName() + "ResultMap type=" + cls.getName() + "> \r\n";
-        str = str + "<id column= \"\""   +  " property= \"\"" +  " />" + " \r\n";
+        str = "<resultMap id=\"" + cls.getSimpleName() + "ResultMap\" type=\"" + cls.getName() + "\"> \r\n";
+        str = str + "\t<id column= \"\""   +  " property= \"\"" +  " />" + " \r\n";
         // 每一行字符串
         String linestr = "";
         Field[] declaredFields = cls.getDeclaredFields();
         for (Field field : declaredFields) {
-            linestr = "<result column=\"" + getUpCaseReplace(field.getName()) + "\" property=\"" + field.getName()
+            if(field.getName().equals("serialVersionUID")){
+                continue;
+            }
+            linestr = "\t<result column=\"" + getUpCaseReplace(field.getName()) + "\" property=\"" + field.getName()
                     + "\" />";
             linestr += "\r\n";
             str += linestr;
@@ -60,8 +65,8 @@ public class MybatisUtil {
             str = str.replace(listChar.get(i), "_" + listChar.get(i).toUpperCase());
         }
         //将字段全部装换为大写
-        String result = getAllUpCaseList(str);
-        return result;
+        //String result = getAllUpCaseList(str);
+        return str.toLowerCase();
     }
 
     private static String getAllUpCaseList(String str) {
@@ -93,7 +98,9 @@ public class MybatisUtil {
 
     public static void main(String[] args) throws Exception {
         //TODO 需要生成的属性
-        BookInfo a = new BookInfo();
+        //BookInfo a = new BookInfo();
+        //Notice a = new Notice();
+        ReaderNotice a = new ReaderNotice();
         System.out.println(getResultMap(a.getClass()));
         //所有属性
         System.out.println("------------------------------------------------------------------------");

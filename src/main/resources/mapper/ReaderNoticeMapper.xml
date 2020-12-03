@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.book.system.mapper.ReaderNoticeMapper">
+    <resultMap id="NoticeResultMap" type="com.book.system.entity.Notice">
+        <id column= "id" property= "id" />
+        <result column="title" property="title" />
+        <result column="create_date" property="createDate" />
+        <result column="published_date" property="publishedDate" />
+        <result column="state" property="state" />
+    </resultMap>
+    <resultMap id="ReaderNoticeResultMap" type="com.book.system.entity.ReaderNotice">
+        <id column= "id" property= "id" />
+        <result column="notice_id" property="noticeId" />
+        <result column="reader_id" property="readerId" />
+        <result column="read_state" property="readState" />
+        <association property="notice" javaType="com.book.system.entity.Notice" resultMap="NoticeResultMap"/>
+    </resultMap>
+    <select id="getByReaderIdAndState" resultMap="ReaderNoticeResultMap">
+        select 
+            a.*,
+            b.id nid,
+            b.create_date,
+            b.published_date,
+            b.title,
+            b.state
+        from reader_notice a 
+            join notice b
+            on a.notice_id = b.id
+        where a.reader_id = #{readerId}
+        and a.read_state = #{readState}
+    </select>
+</mapper>

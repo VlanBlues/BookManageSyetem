@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50721
 File Encoding         : 65001
 
-Date: 2020-12-02 17:18:06
+Date: 2020-12-03 17:32:56
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -181,7 +181,7 @@ CREATE TABLE `login_log` (
   `ip` varchar(100) DEFAULT NULL,
   `date` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=139 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=146 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of login_log
@@ -189,6 +189,13 @@ CREATE TABLE `login_log` (
 INSERT INTO `login_log` VALUES ('136', '10000', 'zhanghua', '127.0.0.1', '2020-12-02 16:49:55');
 INSERT INTO `login_log` VALUES ('137', '10000', 'zhanghua', '127.0.0.1', '2020-12-02 16:51:00');
 INSERT INTO `login_log` VALUES ('138', '10000', 'zhanghua', '127.0.0.1', '2020-12-02 16:51:56');
+INSERT INTO `login_log` VALUES ('139', '10000', 'zhanghua', '127.0.0.1', '2020-12-03 10:00:56');
+INSERT INTO `login_log` VALUES ('140', '10000', 'zhanghua', '127.0.0.1', '2020-12-03 10:15:34');
+INSERT INTO `login_log` VALUES ('141', '10000', 'zhanghua', '127.0.0.1', '2020-12-03 10:17:08');
+INSERT INTO `login_log` VALUES ('142', '10000', 'zhanghua', '127.0.0.1', '2020-12-03 10:20:26');
+INSERT INTO `login_log` VALUES ('143', '10000', 'zhanghua', '127.0.0.1', '2020-12-03 14:52:45');
+INSERT INTO `login_log` VALUES ('144', '10000', 'zhanghua', '127.0.0.1', '2020-12-03 14:52:57');
+INSERT INTO `login_log` VALUES ('145', '10000', 'zhanghua', '127.0.0.1', '2020-12-03 14:57:24');
 
 -- ----------------------------
 -- Table structure for notice
@@ -201,7 +208,7 @@ CREATE TABLE `notice` (
   `published_date` varchar(100) DEFAULT NULL COMMENT '发布时间',
   `state` int(2) DEFAULT '0' COMMENT '状态0为未发布，1为已发布，-1为回收站',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of notice
@@ -216,6 +223,7 @@ INSERT INTO `notice` VALUES ('8', '【系统通知】该系统将于今晚凌晨
 INSERT INTO `notice` VALUES ('9', '【系统通知】该系统将于今晚凌晨2点到5点进行升级维护8', '2020-11-09 10:47:03', '2020-11-09 14:57:59', '0');
 INSERT INTO `notice` VALUES ('11', '【系统通知】该系统将于今晚凌晨2点到5点进行升级维护9', '2020-11-09 10:47:18', '2020-11-09 15:00:23', '1');
 INSERT INTO `notice` VALUES ('13', '【系统通知】该系统将于今晚凌晨2点到5点进行升级维护10', '2020-11-09 14:33:11', '2020-11-09 14:42:24', '-1');
+INSERT INTO `notice` VALUES ('14', '【系统通知】该系统将于今晚凌晨2点到5点进行升级维护2【系统通知】该系统将于今晚凌晨2点到5点进行升级维护2【系统通知】该系统将于今晚凌晨2点到5点进行升级维护2【系统通知】该系统将于今晚凌晨2点到5点进行升级维护2【系统通知】该系统将于今晚凌晨2点到5点进行升级维护2【系统通知】该系统将于今晚凌晨2点到5点进行升级维护2【系统通知】该系统将于今晚凌晨2点到5点进行升级维护2【系统通知】该系统将于今晚凌晨2点到5点进行升级维护2【系统通知】该系统将于今晚凌晨2点到5点进行升级维护2', '2020-12-03 14:47:36', null, '-1');
 
 -- ----------------------------
 -- Table structure for reader_info
@@ -266,3 +274,21 @@ CREATE TABLE `reader_likes` (
 -- ----------------------------
 -- Records of reader_likes
 -- ----------------------------
+
+-- ----------------------------
+-- Table structure for reader_notice
+-- ----------------------------
+DROP TABLE IF EXISTS `reader_notice`;
+CREATE TABLE `reader_notice` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `notice_id` int(11) DEFAULT NULL,
+  `reader_id` int(11) DEFAULT NULL,
+  `read_state` int(11) DEFAULT '1' COMMENT '1:已阅读，0:未阅读',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------
+-- Records of reader_notice
+-- ----------------------------
+INSERT INTO `reader_notice` VALUES ('1', '1', '10000', '1');
+INSERT INTO `reader_notice` VALUES ('3', '6', '10000', '1');

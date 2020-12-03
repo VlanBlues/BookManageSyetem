@@ -15,4 +15,22 @@
         GROUP BY
             state
     </select>
+    <select id="getByReaderIdAndState" resultType="com.book.system.entity.Notice">
+        select *
+        from notice 
+        <where>
+            <if test="state == 0">
+                id not in
+                (select notice_id from reader_notice where reader_id = #{readerId} )
+                and state = 1
+            </if>
+            <if test="state == 1">
+                id in
+                (select notice_id from reader_notice where reader_id = #{readerId} )
+                and state = 1
+            </if>
+        </where>
+        
+        
+    </select>
 </mapper>
