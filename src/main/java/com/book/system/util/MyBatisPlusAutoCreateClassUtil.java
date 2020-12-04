@@ -18,7 +18,7 @@ import java.util.Scanner;
  * Author: Vlan
  * Date: 2020/12/2 15:53
  */
-public class MyBatisPlusAutoClass {
+public class MyBatisPlusAutoCreateClassUtil {
     public static String scanner(String tip) {
         Scanner scanner = new Scanner(System.in);
         StringBuilder help = new StringBuilder();

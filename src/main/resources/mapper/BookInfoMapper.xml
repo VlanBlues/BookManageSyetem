@@ -70,7 +70,7 @@
         from book_info a
             join class_info b
                 on a.class_id = b.class_id
-            right join book_collection c
+            join book_collection c
                 on a.book_id = c.book_id and c.reader_id = #{readerId}
         order by a.book_id
     </select>

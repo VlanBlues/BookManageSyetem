@@ -69,17 +69,15 @@ public class NoticeController {
     }
     
     @RequestMapping("/getNewNotice")
-    public Result getNewNotice(){
+    public Result getNewNotice(String readerId){
         QueryWrapper<Notice> wrapper = new QueryWrapper<>();
-        wrapper.orderByDesc("published_date").last("limit 1");
+        wrapper.notInSql("id","select notice_id from reader_notice where reader_id= \""+readerId+"\"").orderByDesc("published_date").last("limit 1");
         Notice notice = noticeService.getOne(wrapper);
-
-        Date date = DateUtil.strToDateLong(DateUtil.getNextDay(DateUtil.getStringDate(), "1"));
-        if(DateUtil.strToDateLong(notice.getPublishedDate()).after(date)){
-            System.out.println(111);
-        }else{
-            System.out.println(222);
+        String nextDay = DateUtil.getNextDay(notice.getPublishedDate(), "3");
+        String nowDate = DateUtil.getStringDate();
+        if(nextDay.compareTo(nowDate) > 0){
+            return Result.success(notice);
         }
-        return Result.success();
+        return Result.fail();
     }
 }

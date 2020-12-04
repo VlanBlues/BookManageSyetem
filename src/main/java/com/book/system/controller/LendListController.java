@@ -70,4 +70,13 @@ public class LendListController {
         }
         return Result.fail();
     }
+    
+    @RequestMapping("/delByLendId")
+    public Result delById(Integer lendId){
+        boolean b = lendListService.removeById(lendId);
+        if(b){
+            return Result.success("取消成功！");
+        }
+        return Result.fail("取消出错！");
+    }
 }

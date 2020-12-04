@@ -8,7 +8,7 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MybatisUtil {
+public class MybatisGetResultMapUtil {
     // 获取bean的属性 根据属性评价 resultMap
     // 并将驼峰修改为'_'
     public static String getResultMap(Class<?> cls) throws Exception {

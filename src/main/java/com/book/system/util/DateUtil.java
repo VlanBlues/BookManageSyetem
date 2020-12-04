@@ -149,10 +149,10 @@ public  class DateUtil {
      * @param strDate
      * @return
      */
-    public static Timestamp strToDateSql(String strDate) {
+    public static Date strToDateSql(String strDate) {
         ParsePosition pos = new ParsePosition(0);
         Date strtodate = formatter2.parse(strDate, pos);
-        return new Timestamp(strtodate.getTime());
+        return strtodate;
     }
 
     /**
@@ -325,10 +325,10 @@ public  class DateUtil {
     public static String getNextDay(String nowdate, String delay) {
         try {
             String mdate = "";
-            Date d = strToDate(nowdate);
+            Date d = strToDateSql(nowdate);
             long myTime = (d.getTime() / 1000) + Integer.parseInt(delay) * 24 * 60 * 60;
             d.setTime(myTime * 1000);
-            mdate = formatter.format(d);
+            mdate = formatter2.format(d);
             return mdate;
         } catch (Exception e) {
             return "";

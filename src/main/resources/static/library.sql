@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50721
 File Encoding         : 65001
 
-Date: 2020-12-03 17:32:56
+Date: 2020-12-04 16:50:10
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -40,7 +40,7 @@ CREATE TABLE `book_collection` (
   `book_id` int(20) NOT NULL,
   `reader_id` int(20) NOT NULL,
   PRIMARY KEY (`collection_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of book_collection
@@ -48,6 +48,9 @@ CREATE TABLE `book_collection` (
 INSERT INTO `book_collection` VALUES ('42', '1', '10000');
 INSERT INTO `book_collection` VALUES ('43', '2', '10000');
 INSERT INTO `book_collection` VALUES ('44', '3', '10000');
+INSERT INTO `book_collection` VALUES ('45', '1', '10021');
+INSERT INTO `book_collection` VALUES ('46', '2', '10021');
+INSERT INTO `book_collection` VALUES ('47', '3', '10021');
 
 -- ----------------------------
 -- Table structure for book_comment
@@ -155,9 +158,9 @@ CREATE TABLE `lend_list` (
   `lend_date` varchar(20) DEFAULT NULL,
   `approval_date` varchar(20) DEFAULT NULL,
   `back_date` varchar(20) DEFAULT NULL,
-  `state` int(2) DEFAULT '0',
+  `state` int(2) DEFAULT '0' COMMENT '0：未审批 1：已审批 2：已归还',
   PRIMARY KEY (`lend_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of lend_list
@@ -169,6 +172,7 @@ INSERT INTO `lend_list` VALUES ('4', '4', '10000', '2020-03-15', '2020-09-03', '
 INSERT INTO `lend_list` VALUES ('5', '5', '10002', '2020-11-30', '', null, '0');
 INSERT INTO `lend_list` VALUES ('6', '6', '10000', '2020-11-30', '2020-11-30', '', '1');
 INSERT INTO `lend_list` VALUES ('7', '1', '10001', '2020-09-02', '2020-09-03', '2020-09-02', '2');
+INSERT INTO `lend_list` VALUES ('17', '2', '10021', '2020-12-04', null, null, '0');
 
 -- ----------------------------
 -- Table structure for login_log
@@ -181,7 +185,7 @@ CREATE TABLE `login_log` (
   `ip` varchar(100) DEFAULT NULL,
   `date` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=146 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=158 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of login_log
@@ -196,6 +200,18 @@ INSERT INTO `login_log` VALUES ('142', '10000', 'zhanghua', '127.0.0.1', '2020-1
 INSERT INTO `login_log` VALUES ('143', '10000', 'zhanghua', '127.0.0.1', '2020-12-03 14:52:45');
 INSERT INTO `login_log` VALUES ('144', '10000', 'zhanghua', '127.0.0.1', '2020-12-03 14:52:57');
 INSERT INTO `login_log` VALUES ('145', '10000', 'zhanghua', '127.0.0.1', '2020-12-03 14:57:24');
+INSERT INTO `login_log` VALUES ('146', '10000', 'zhanghua', '127.0.0.1', '2020-12-04 09:49:12');
+INSERT INTO `login_log` VALUES ('147', '10000', 'zhanghua', '127.0.0.1', '2020-12-04 09:54:11');
+INSERT INTO `login_log` VALUES ('148', '10000', 'zhanghua', '127.0.0.1', '2020-12-04 09:54:34');
+INSERT INTO `login_log` VALUES ('149', '10000', 'zhanghua', '127.0.0.1', '2020-12-04 09:55:27');
+INSERT INTO `login_log` VALUES ('150', '10000', 'zhanghua', '127.0.0.1', '2020-12-04 10:08:43');
+INSERT INTO `login_log` VALUES ('151', '10000', 'zhanghua', '127.0.0.1', '2020-12-04 10:19:30');
+INSERT INTO `login_log` VALUES ('152', '10000', 'zhanghua', '127.0.0.1', '2020-12-04 10:22:25');
+INSERT INTO `login_log` VALUES ('153', '10000', 'zhanghua', '127.0.0.1', '2020-12-04 14:01:29');
+INSERT INTO `login_log` VALUES ('154', '10000', 'zhanghua', '127.0.0.1', '2020-12-04 14:13:32');
+INSERT INTO `login_log` VALUES ('155', '10021', 'test001', '127.0.0.1', '2020-12-04 15:28:02');
+INSERT INTO `login_log` VALUES ('156', '10000', 'zhanghua', '127.0.0.1', '2020-12-04 15:36:07');
+INSERT INTO `login_log` VALUES ('157', '10021', 'test001', '127.0.0.1', '2020-12-04 15:36:23');
 
 -- ----------------------------
 -- Table structure for notice
@@ -208,7 +224,7 @@ CREATE TABLE `notice` (
   `published_date` varchar(100) DEFAULT NULL COMMENT '发布时间',
   `state` int(2) DEFAULT '0' COMMENT '状态0为未发布，1为已发布，-1为回收站',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of notice
@@ -224,6 +240,8 @@ INSERT INTO `notice` VALUES ('9', '【系统通知】该系统将于今晚凌晨
 INSERT INTO `notice` VALUES ('11', '【系统通知】该系统将于今晚凌晨2点到5点进行升级维护9', '2020-11-09 10:47:18', '2020-11-09 15:00:23', '1');
 INSERT INTO `notice` VALUES ('13', '【系统通知】该系统将于今晚凌晨2点到5点进行升级维护10', '2020-11-09 14:33:11', '2020-11-09 14:42:24', '-1');
 INSERT INTO `notice` VALUES ('14', '【系统通知】该系统将于今晚凌晨2点到5点进行升级维护2【系统通知】该系统将于今晚凌晨2点到5点进行升级维护2【系统通知】该系统将于今晚凌晨2点到5点进行升级维护2【系统通知】该系统将于今晚凌晨2点到5点进行升级维护2【系统通知】该系统将于今晚凌晨2点到5点进行升级维护2【系统通知】该系统将于今晚凌晨2点到5点进行升级维护2【系统通知】该系统将于今晚凌晨2点到5点进行升级维护2【系统通知】该系统将于今晚凌晨2点到5点进行升级维护2【系统通知】该系统将于今晚凌晨2点到5点进行升级维护2', '2020-12-03 14:47:36', null, '-1');
+INSERT INTO `notice` VALUES ('15', 'test001', '2020-12-04 10:10:51', '2020-12-04 10:10:55', '1');
+INSERT INTO `notice` VALUES ('16', 'test002', '2020-12-04 10:37:07', '2020-12-04 10:37:10', '1');
 
 -- ----------------------------
 -- Table structure for reader_info
@@ -240,7 +258,7 @@ CREATE TABLE `reader_info` (
   `img` varchar(100) DEFAULT 'http://localhost:8081/img/mouse.jpg',
   `register_date` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`reader_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10021 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10022 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of reader_info
@@ -259,6 +277,7 @@ INSERT INTO `reader_info` VALUES ('10014', '456', '123123', '456456', '男', '20
 INSERT INTO `reader_info` VALUES ('10017', '456', '456', '456', '女', '2020-11-10', '12315351311', 'http://localhost:8081/img/mouse.jpg', '2020-11-23');
 INSERT INTO `reader_info` VALUES ('10018', '1123', '123', '123', '男', '2020-11-25', '12315351311', 'http://localhost:8081/img/mouse.jpg', '2020-11-23');
 INSERT INTO `reader_info` VALUES ('10020', '123', '1234', '123', '女', '2020-11-11', '12315351311', 'http://localhost:8081/img/mouse.jpg', '2020-11-23');
+INSERT INTO `reader_info` VALUES ('10021', '张伟', 'test001', '123456', '男', '2010-12-29', '12345678978', 'http://localhost:8081/img/mouse.jpg', '2020-12-04');
 
 -- ----------------------------
 -- Table structure for reader_likes
@@ -285,10 +304,11 @@ CREATE TABLE `reader_notice` (
   `reader_id` int(11) DEFAULT NULL,
   `read_state` int(11) DEFAULT '1' COMMENT '1:已阅读，0:未阅读',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of reader_notice
 -- ----------------------------
 INSERT INTO `reader_notice` VALUES ('1', '1', '10000', '1');
 INSERT INTO `reader_notice` VALUES ('3', '6', '10000', '1');
+INSERT INTO `reader_notice` VALUES ('4', '11', '10000', '1');

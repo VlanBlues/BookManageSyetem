@@ -29,6 +29,7 @@
                 (select notice_id from reader_notice where reader_id = #{readerId} )
                 and state = 1
             </if>
+            
         </where>
         
         
